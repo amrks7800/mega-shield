@@ -16,13 +16,14 @@ const CarCard = ({ img, text, index }: CarCardProps) => {
         transition: { duration: 1, delay: 0.5 * index },
       }}
       viewport={{ once: true, amount: 0.25 }}
-      className="relative sm:h-[380px] h-[250px] overflow-hidden rounded-lg shadow-md group"
+      className={`relative sm:h-[380px] h-[250px] overflow-hidden rounded-lg shadow-md group
+      ${img} bg-cover bg-no-repeat bg-center`}
     >
-      <img
+      {/* <img
         src={img}
         alt="car"
         className="absolute inset-0 w-full object-cover"
-      />
+      /> */}
       <div
         className="absolute w-full h-20 bg-red-500 -bottom-full transition-all duration-300 group-hover:bottom-0
       text-center font-arabic text-xl pt-5"
