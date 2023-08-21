@@ -14,6 +14,7 @@ const Adds = () => {
           translateX: 0,
           transition: { delay: 1, duration: 2 },
         }}
+        viewport={{ once: true }}
         className="flex-1 flex justify-center items-center bg-wheel bg-cover bg-no-repeat bg-blend-overlay
       relative"
       >
@@ -60,6 +61,7 @@ const Adds = () => {
           translateX: 0,
           transition: { delay: 1, duration: 2 },
         }}
+        viewport={{ once: true }}
         className="flex-1 flex justify-center items-center bg-primary/70"
       >
         <div className="z-10 text-center">

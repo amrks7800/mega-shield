@@ -15,6 +15,7 @@ const CarCard = ({ img, text, index }: CarCardProps) => {
         translateY: 0,
         transition: { duration: 1, delay: 0.5 * index },
       }}
+      viewport={{ once: true, amount: 0.25 }}
       className="relative sm:h-[380px] h-[250px] overflow-hidden rounded-lg shadow-md group"
     >
       <img

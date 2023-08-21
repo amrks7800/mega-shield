@@ -54,3 +54,27 @@ export const SERVICES_OPTIONS = {
     title: "حجز حماية الزجاج",
   },
 }
+
+export enum CATEGORIES {
+  batteries = "batteries",
+  oil = "oil",
+  wheels = "wheels",
+}
+
+export const products = [
+  {
+    category: CATEGORIES.batteries,
+    img: "/battery.png",
+    name: "battery",
+  },
+  {
+    category: CATEGORIES.oil,
+    img: "/oil.png",
+    name: "oil",
+  },
+  {
+    category: CATEGORIES.wheels,
+    img: "/wheel.png",
+    name: "wheel",
+  },
+]

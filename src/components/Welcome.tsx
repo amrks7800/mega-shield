@@ -24,6 +24,7 @@ const Welcome = () => {
             opacity: 1,
             transition: { duration: 0.3, delay: 0.3 },
           }}
+          viewport={{ once: true, amount: 0.25 }}
           className="font-arabic font-semibold text-md text-slate-300 max-w-[600px]
       text-center mx-auto my-5"
         >
@@ -39,6 +40,7 @@ const Welcome = () => {
             opacity: 1,
             transition: { duration: 0.3, delay: 0.6 },
           }}
+          viewport={{ once: true, amount: 0.25 }}
           className="font-arabic font-semibold text-md text-slate-300 max-w-[600px]
       text-center mx-auto my-5"
         >
@@ -55,6 +57,7 @@ const Welcome = () => {
             opacity: 1,
             transition: { duration: 0.3, delay: 0.9 },
           }}
+          viewport={{ once: true, amount: 0.25 }}
           className="font-arabic font-semibold text-md text-slate-300 max-w-[600px]
       text-center mx-auto my-5"
         >
