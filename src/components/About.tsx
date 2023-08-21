@@ -1,10 +1,4 @@
 import { CarCard } from "."
-import car1 from "/car1-s.jpeg"
-import car2 from "/car2-s.jpg"
-import car3 from "/car3-s.jpg"
-import car4 from "/car4-s.jpeg"
-import car5 from "/car5-s.jpeg"
-import car6 from "/car6-s.jpeg"
 
 const About = () => {
   return (
