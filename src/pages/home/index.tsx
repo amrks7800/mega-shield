@@ -11,7 +11,10 @@ const Home = () => {
   return (
     <Routes>
       <Route index element={<Page />} />
-      <Route path="/:service" element={<Services />} />
+      <Route
+        path="/service/:service"
+        element={<Services />}
+      />
     </Routes>
   )
 }

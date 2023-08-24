@@ -129,7 +129,7 @@ const Slide = ({ img, content, path }: SlideProps) => {
             المزيد
           </button>
           <Link
-            to={`/${path}`}
+            to={`/service/${path}`}
             className="flex items-center justify-center text-3xl font-bold font-arabic h-20 w-[220px] bg-primary mx-auto my-5
           border-4 border-solid border-transparent
           transition-colors hover:bg-transparent hover:border-primary"

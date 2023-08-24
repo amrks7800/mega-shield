@@ -55,6 +55,33 @@ export const SERVICES_OPTIONS = {
   },
 }
 
+export const SERVICES_LINKS = [
+  {
+    name: SERVICES_OPTIONS[SERVICES.film].title,
+    href: `/service/${SERVICES.film}`,
+  },
+  {
+    name: SERVICES_OPTIONS[SERVICES.nano].title,
+    href: `/service/${SERVICES.nano}`,
+  },
+  {
+    name: SERVICES_OPTIONS[SERVICES.thermal].title,
+    href: `/service/${SERVICES.thermal}`,
+  },
+  {
+    name: SERVICES_OPTIONS[SERVICES.glass].title,
+    href: `/service/${SERVICES.glass}`,
+  },
+  {
+    name: SERVICES_OPTIONS[SERVICES.polish].title,
+    href: `/service/${SERVICES.polish}`,
+  },
+  {
+    name: SERVICES_OPTIONS[SERVICES.protect].title,
+    href: `/service/${SERVICES.protect}`,
+  },
+]
+
 export enum CATEGORIES {
   batteries = "batteries",
   oil = "oil",
