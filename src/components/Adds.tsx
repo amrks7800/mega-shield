@@ -1,6 +1,7 @@
 import { SearchCheck } from "lucide-react"
 import mobileCar from "/mobile-car.png"
 import { motion } from "framer-motion"
+import { Link } from "react-router-dom"
 
 const Adds = () => {
   return (
@@ -46,13 +47,15 @@ const Adds = () => {
               </span>
             </li>
           </ul>
-          <button
-            className="flex items-center justify-center text-3xl font-bold font-arabic h-20 w-[220px] bg-primary mx-auto my-5
+          <Link to={"/shopping"}>
+            <button
+              className="flex items-center justify-center text-3xl font-bold font-arabic h-20 w-[220px] bg-primary mx-auto my-5
           border-4 border-solid border-transparent
           transition-colors hover:bg-transparent hover:border-primary"
-          >
-            التسوق
-          </button>
+            >
+              التسوق
+            </button>
+          </Link>
         </div>
       </motion.div>
       <motion.div
