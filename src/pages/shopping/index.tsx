@@ -1,10 +1,13 @@
-import { Categories, ProductCard } from "@/components"
+import { Cart, Categories, ProductCard } from "@/components"
 import { CATEGORIES } from "@/constants"
 
 const Shopping = () => {
   return (
     <div>
-      <Categories />
+      <div className="flex px-4 items-center justify-between">
+        <Categories />
+        <Cart />
+      </div>
       <div className="grid grid-columns p-4">
         <ProductCard
           name="بطارية"

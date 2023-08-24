@@ -105,3 +105,10 @@ video {
   );
   gap: 20px;
 }
+
+.grid-columns-no-gap {
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(250px, 1fr)
+  );
+}

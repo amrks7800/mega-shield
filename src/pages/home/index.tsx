@@ -6,6 +6,8 @@ import {
 } from "@/components"
 import { Route, Routes } from "react-router-dom"
 import Services from "./nested-pages/Services"
+import ServicesDescription from "./nested-pages/ServicesDescription"
+import ServiceCriteria from "./nested-pages/ServiceCriteria"
 
 const Home = () => {
   return (
@@ -14,6 +16,14 @@ const Home = () => {
       <Route
         path="/service/:service"
         element={<Services />}
+      />
+      <Route
+        path="/description/:service"
+        element={<ServicesDescription />}
+      />
+      <Route
+        path="/more/:service"
+        element={<ServiceCriteria />}
       />
     </Routes>
   )

@@ -25,7 +25,7 @@ const Carousel = () => {
         path={SERVICES.film}
         img="bg-img2"
         content={{
-          title: "أفلام حماية السيارات",
+          title: "أفلام حماية الطلاء",
           rest: `يحافظ على الوضوح ، ويضمن عدم التشقق
           مع التعرض للأشعة فوق البنفسجية أو رذاذ الملح
           `,
@@ -45,7 +45,7 @@ const Carousel = () => {
         path={SERVICES.protect}
         img="bg-img4"
         content={{
-          title: "الحماية الكاملة",
+          title: "الحماية الداخلية",
           rest: `
             حماية المقاعد و الكنب و الأجزاء الداخلية للسيارة
           `,
@@ -120,14 +120,16 @@ const Slide = ({ img, content, path }: SlideProps) => {
         <p className="text-md font-semibold text-slate-200 font-arabic">
           {content.rest}
         </p>
-        <div className="flex items-center justify-center sm:flex-row flex-col gap-3 sm:gap-8 mt-7">
-          <button
-            className="flex items-center justify-center text-3xl font-bold font-arabic h-20 w-[220px] bg-white mx-auto my-5
+        <div className="flex items-center justify-center sm:flex-row flex-col gap-3 sm:gap-8 mt-7 w-fit mx-auto">
+          <Link to={`/more/${path}`}>
+            <button
+              className="flex items-center justify-center text-3xl font-bold font-arabic h-20 w-[220px] bg-white mx-auto my-5
           border-4 border-solid border-transparent text-black
           transition-colors hover:bg-transparent hover:border-white"
-          >
-            المزيد
-          </button>
+            >
+              المزيد
+            </button>
+          </Link>
           <Link
             to={`/service/${path}`}
             className="flex items-center justify-center text-3xl font-bold font-arabic h-20 w-[220px] bg-primary mx-auto my-5

@@ -3,9 +3,6 @@ import { CATEGORIES } from "@/constants"
 const Categories = () => {
   return (
     <div className="flex items-center gap-5 justify-center my-5">
-      <span className="font-arabic text-lg font-bold">
-        اختر نوع المنتج:{" "}
-      </span>
       <CategoryCard category={CATEGORIES.batteries} />
       <CategoryCard category={CATEGORIES.oil} />
       <CategoryCard category={CATEGORIES.wheels} />
