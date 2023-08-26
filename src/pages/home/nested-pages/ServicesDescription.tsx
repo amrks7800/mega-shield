@@ -1,7 +1,7 @@
 import { Link, useParams } from "react-router-dom"
 import { Switch, Case, Show } from "@dev-amr/react-sugartax"
 import { SERVICES, SERVICES_DESCRIPTION } from "@/constants"
-import { ReactNode } from "react"
+import { Description } from "@/components"
 
 const ServicesDescription = () => {
   const { service } = useParams()
@@ -41,22 +41,3 @@ const ServicesDescription = () => {
   )
 }
 export default ServicesDescription
-
-type DescriptionProps = {
-  title: string
-  content: ReactNode
-}
-
-const Description = ({
-  title,
-  content,
-}: DescriptionProps) => {
-  return (
-    <div className="p-4 text-lg font-arabic max-w-xl px-4 mx-auto">
-      <h1 className="text-primary text-3xl w-fit mx-auto mb-5">
-        {title}
-      </h1>
-      {content}
-    </div>
-  )
-}
