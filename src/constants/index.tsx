@@ -9,6 +9,29 @@ export enum SERVICES {
   glass = "glass",
 }
 
+export const PRODUCTS = {
+  thermoProtect: {
+    title: "عازل حراري",
+    description:
+      "بمنع تأثير التأكل الحراري و يطيل عمر اجزاء السيارة",
+  },
+  nanoTheramic: {
+    title: "النانوسيراميك",
+    description:
+      "بمنع تأثير التأكل الحراري و يطيل عمر اجزاء السيارة",
+  },
+  innerProtection: {
+    title: "الحماية الداخلية",
+    description:
+      "حماية المقاعد و الكنب و الأجزاء الداخلية للسيارة",
+  },
+  paintProtection: {
+    title: "أفلام حماية الطلاء",
+    description:
+      "يحافظ على الوضوح ، ويضمن عدم التشقق مع التعرض للأشعة فوق البنفسجية أو رذاذ الملح",
+  },
+}
+
 export const SERVICES_OPTIONS = {
   [SERVICES.thermal]: {
     options: [

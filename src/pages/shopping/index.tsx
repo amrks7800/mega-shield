@@ -3,7 +3,7 @@ import { CATEGORIES } from "@/constants"
 
 const Shopping = () => {
   return (
-    <div>
+    <div className="mt-[80px]">
       <div className="flex px-4 items-center justify-between">
         <Categories />
         <Cart />

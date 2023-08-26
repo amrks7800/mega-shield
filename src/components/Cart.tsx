@@ -16,7 +16,7 @@ const Cart = () => {
       >
         <ShoppingCart size={30} color="#E22D48" />
       </SheetTrigger>
-      <SheetContent className="bg-[#333]">
+      <SheetContent className="bg-[#333] z-[5000000000000000]">
         <SheetHeader>
           <SheetTitle className="text-primary text-2xl font-arabic mx-auto w-fit">
             أكمل حجز طلباتك الان

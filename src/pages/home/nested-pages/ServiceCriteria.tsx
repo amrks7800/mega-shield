@@ -9,42 +9,44 @@ const ServiceCriteria = () => {
   if (!service) return "service undefined 😯"
 
   return (
-    <Switch on={service}>
-      <Case that={SERVICES.film}>
-        <div className="grid grid-columns-no-gap">
-          <For
-            each={SERVICES_OPTIONS[SERVICES.film].options}
-          >
-            {(item, i) => (
-              <ServiceOptionCard
-                img={`bg-img${i! + 1}-s`}
-                title={item}
-                serviceTitle={
-                  SERVICES_OPTIONS[SERVICES.film].title
-                }
-                key={i}
-                idx={i!}
-              />
-            )}
-          </For>
-        </div>
-      </Case>
-      <Case that={SERVICES.glass}>
-        {SERVICES_OPTIONS[SERVICES.glass].options}
-      </Case>
-      <Case that={SERVICES.polish}>
-        {SERVICES_OPTIONS[SERVICES.polish].options}
-      </Case>
-      <Case that={SERVICES.nano}>
-        {SERVICES_OPTIONS[SERVICES.nano].options}
-      </Case>
-      <Case that={SERVICES.protect}>
-        {SERVICES_OPTIONS[SERVICES.protect].options}
-      </Case>
-      <Case that={SERVICES.thermal}>
-        {SERVICES_OPTIONS[SERVICES.thermal].options}
-      </Case>
-    </Switch>
+    <div className="mt-[80px]">
+      <Switch on={service}>
+        <Case that={SERVICES.film}>
+          <div className="grid grid-columns-no-gap">
+            <For
+              each={SERVICES_OPTIONS[SERVICES.film].options}
+            >
+              {(item, i) => (
+                <ServiceOptionCard
+                  img={`bg-img${i! + 1}-s`}
+                  title={item}
+                  serviceTitle={
+                    SERVICES_OPTIONS[SERVICES.film].title
+                  }
+                  key={i}
+                  idx={i!}
+                />
+              )}
+            </For>
+          </div>
+        </Case>
+        <Case that={SERVICES.glass}>
+          {SERVICES_OPTIONS[SERVICES.glass].options}
+        </Case>
+        <Case that={SERVICES.polish}>
+          {SERVICES_OPTIONS[SERVICES.polish].options}
+        </Case>
+        <Case that={SERVICES.nano}>
+          {SERVICES_OPTIONS[SERVICES.nano].options}
+        </Case>
+        <Case that={SERVICES.protect}>
+          {SERVICES_OPTIONS[SERVICES.protect].options}
+        </Case>
+        <Case that={SERVICES.thermal}>
+          {SERVICES_OPTIONS[SERVICES.thermal].options}
+        </Case>
+      </Switch>
+    </div>
   )
 }
 export default ServiceCriteria

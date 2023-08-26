@@ -3,7 +3,7 @@ import { whoAreWeContent } from "@/constants"
 
 const Who = () => {
   return (
-    <div>
+    <div className="mt-[80px]">
       <Description
         title="من نحن"
         content={whoAreWeContent[0]}

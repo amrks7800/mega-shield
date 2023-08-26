@@ -30,7 +30,7 @@ const Home = () => {
 }
 
 const Page = () => (
-  <div className="cut-viewport">
+  <div>
     <Carousel />
     <Welcome />
     <About />

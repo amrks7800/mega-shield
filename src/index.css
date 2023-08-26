@@ -112,3 +112,16 @@ video {
     minmax(250px, 1fr)
   );
 }
+
+.scale-in {
+  animation: scaleIn 8s ease 0s both infinite;
+}
+
+@keyframes scaleIn {
+  from {
+    scale: 1;
+  }
+  to {
+    scale: 1.2;
+  }
+}

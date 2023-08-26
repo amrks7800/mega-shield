@@ -15,7 +15,7 @@ const MenuSheet = () => {
       <SheetTrigger className="sm:hidden block">
         <Menu size={25} fill="#E34569" />
       </SheetTrigger>
-      <SheetContent className="bg-[#333] text-slate-200">
+      <SheetContent className="bg-[#333] text-slate-200 z-[5000000000000000]">
         <SheetHeader>
           <SheetDescription>
             <nav className="flex flex-col items-center justify-center gap-6">

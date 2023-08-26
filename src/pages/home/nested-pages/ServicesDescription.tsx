@@ -9,7 +9,7 @@ const ServicesDescription = () => {
   return (
     <section
       id="desc"
-      className="min-h-screen relative overflow-hidden"
+      className="min-h-screen relative overflow-hidden mt-20"
     >
       <Show when={!!service} fallback={"404 ☠"}>
         <Switch on={service!}>

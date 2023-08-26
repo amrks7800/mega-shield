@@ -9,7 +9,7 @@ const Services = () => {
   const { service } = useParams()
 
   return (
-    <form className="text-center flex  items-center justify-center flex-col gap-5">
+    <form className="text-center flex  items-center justify-center flex-col gap-5 py-20 bg-carbon bg-center">
       <Switch on={service ? service : ""}>
         <Case that={SERVICES.thermal}>
           <Heading

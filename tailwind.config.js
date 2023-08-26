@@ -23,6 +23,9 @@ module.exports = {
       "img6-s": "url('/car6-s.jpeg')",
       wheel: "url('/wheel.jpg')",
       welcome: "url('/welcome.jpg')",
+      carbon: "url('/carpon.webp')",
+      "opaque-gradient":
+        "linear-gradient(to left, rgba(0,67,116,0.6) -26.48%, rgba(0,51,102,0.6) 73.52%)",
     },
     fontFamily: {
       arabic: '"Almarai", sans-serif',
