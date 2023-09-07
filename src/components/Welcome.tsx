@@ -17,7 +17,7 @@ const Welcome = () => {
         }}
         className="bg-welcome bg-cover bg-no-repeat bg-center flex-1 relative sm:block hidden"
       />
-      <div className="z-10 text-center flex-1 flex justify-center flex-col">
+      <div className="z-10 text-center flex-1 flex justify-center flex-col max-sm:bg-welcome bg-cover bg-center bg-no-repeat">
         <div className="max-w-[600px] sm:ps-7">
           <MainTitle>مرحبا فى ميجا شيلد</MainTitle>
         </div>
@@ -30,7 +30,7 @@ const Welcome = () => {
           }}
           viewport={{ amount: 0.25 }}
           className="font-arabic font-semibold text-md text-slate-300 max-w-[600px]
-          text-right mx-auto my-5"
+          sm:text-right text-center sm:px-0 px-3 mx-auto my-5"
         >
           نحن فريق من المحترفين المتخصصين في تقديم أفضل
           أفلام تظليل النوافذ للسيارات والشركات والمنازل في
@@ -46,7 +46,7 @@ const Welcome = () => {
           }}
           viewport={{ amount: 0.25 }}
           className="font-arabic font-semibold text-md text-slate-300 max-w-[600px]
-          text-right mx-auto my-5"
+          sm:text-right text-center sm:px-0 px-3 mx-auto my-5"
         >
           لقد اصبحنا شريكا موثوقا به للعديد من العملاء و
           الشركات ف المملكة. نحن نفتخر بتقدسم منتجات ذات
@@ -63,7 +63,7 @@ const Welcome = () => {
           }}
           viewport={{ amount: 0.25 }}
           className="font-arabic font-semibold text-md text-slate-300 max-w-[600px]
-          text-right mx-auto my-5"
+          sm:text-right text-center sm:px-0 px-3 mx-auto my-5"
         >
           انضم الينا اليوم واستمتع بفوائد الحماية المتقدمة و
           المظهر الجمالي لنوافذ سيارتك و المباني الخاصة بك.
