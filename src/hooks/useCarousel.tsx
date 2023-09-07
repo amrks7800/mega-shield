@@ -44,10 +44,15 @@ const useCarousel = ({
     }
   }
 
+  function go(num: number) {
+    setPage(num)
+  }
+
   return {
     page,
     next,
     prev,
+    go,
   }
 }
 export default useCarousel

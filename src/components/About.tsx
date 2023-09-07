@@ -1,13 +1,35 @@
 import { images } from "@/constants"
 import useCarousel from "@/hooks/useCarousel"
 import { ChevronUp } from "lucide-react"
+import DotsGroup from "./DotsGroup"
+import { useEffect, useState } from "react"
 
 const About = () => {
-  const { page, next } = useCarousel({
+  const [percentage, setPercentage] = useState(0)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (percentage < 100) {
+        setPercentage(prev => prev + 1)
+      } else {
+        setPercentage(0)
+      }
+    }, 40)
+
+    return () => {
+      clearInterval(interval)
+    }
+  }, [])
+
+  const { page, next, go } = useCarousel({
     time: 5000,
     pages: 5,
     autoPlay: true,
   })
+
+  useEffect(() => {
+    setPercentage(0)
+  }, [page])
 
   return (
     <section
@@ -28,6 +50,13 @@ const About = () => {
           key={i}
         />
       ))}
+      <div className="absolute z-[1000] bottom-5 left-1/2 -translate-x-1/2">
+        <DotsGroup
+          page={page}
+          percentage={percentage}
+          go={go}
+        />
+      </div>
     </section>
   )
 }
@@ -51,7 +80,7 @@ const Slide = ({
       ${
         pageNumber === currentPageNumber
           ? "bottom-0 "
-          : "-bottom-full delay-500"
+          : "-bottom-full"
       }
       transition-all duration-500`}
     >

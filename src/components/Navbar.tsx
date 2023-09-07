@@ -15,10 +15,10 @@ const Navbar = () => {
         <NavLink to="/insurance">الضمان</NavLink>
         <NavLink to="/who">من نحن</NavLink>
         <motion.div
-          initial={{ y: "-220%", rotate: 90 }}
-          whileInView={{ y: 20, rotate: 90 }}
+          initial={{ y: "-220%" }}
+          animate={{ y: 0 }}
           transition={{ duration: 0.4, delay: 0.6 }}
-          className="w-[120px] translate-y-5 bg-gray-300/50 sm:block hidden"
+          className="w-[120px] sm:block hidden"
         >
           <img src={logo} alt="logo" />
         </motion.div>
