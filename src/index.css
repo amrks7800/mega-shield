@@ -13,7 +13,7 @@ html {
 body {
   direction: rtl;
   font-family: "Barlow Condensed", sans-serif;
-  background-color: #000;
+  background-color: #030303;
   color-scheme: dark;
   @apply text-slate-200;
 }

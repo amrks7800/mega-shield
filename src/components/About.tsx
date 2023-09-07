@@ -55,6 +55,7 @@ const About = () => {
           page={page}
           percentage={percentage}
           go={go}
+          setPercentage={setPercentage}
         />
       </div>
     </section>
