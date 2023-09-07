@@ -21,11 +21,14 @@ module.exports = {
       "img4-s": "url('/car4-s.jpeg')",
       "img5-s": "url('/car5-s.jpeg')",
       "img6-s": "url('/car6-s.jpeg')",
+      main: "url('/main-car.jpg')",
       wheel: "url('/wheel.jpg')",
       welcome: "url('/welcome.jpg')",
       carbon: "url('/carpon.webp')",
       "opaque-gradient":
         "linear-gradient(to left, rgba(0,67,116,0.6) -26.48%, rgba(0,51,102,0.6) 73.52%)",
+      room: "url('/public/booking-cars-bg.webp')",
+      package: "url('/public/packageBG.webp')",
     },
     fontFamily: {
       arabic: '"Almarai", sans-serif',

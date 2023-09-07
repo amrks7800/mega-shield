@@ -1,119 +1,127 @@
+import { ReactNode, useState } from "react"
 import { useParams } from "react-router-dom"
-import { SERVICES, SERVICES_OPTIONS } from "@/constants"
-import { Switch, Case } from "@dev-amr/react-sugartax"
-import { CarSizeSlider, CustomSelect } from "@/components"
-import { Input } from "@/components/ui/input"
-import { Button } from "@/components/ui/button"
+import bigCar from "/big.webp"
+import mediumCar from "/medium.webp"
+import smallCar from "/small.webp"
+import ServicePackageCard from "@/components/ServicePackageCard"
 
 const Services = () => {
   const { service } = useParams()
+  const [active, setActive] = useState(0)
 
   return (
-    <form className="text-center flex  items-center justify-center flex-col gap-5 py-20 bg-carbon bg-center">
-      <Switch on={service ? service : ""}>
-        <Case that={SERVICES.thermal}>
-          <Heading
-            content={
-              SERVICES_OPTIONS[SERVICES.thermal].title
+    <section className="text-center py-20">
+      <div className="text-center min-h-screen bg-room bg-cover bg-no-repeat">
+        <div className="text-center">
+          <Heading content="الخطوة الاولي" />
+          <span className="font-arabic text-lg">
+            اختر حجم سيارتك
+          </span>
+          <div className="flex items-center gap-3 text-center justify-center my-5">
+            <Select
+              setActive={setActive}
+              id={0}
+              active={active === 0}
+            >
+              صغير
+            </Select>
+            <Select
+              setActive={setActive}
+              id={1}
+              active={active === 1}
+            >
+              وسط
+            </Select>
+            <Select
+              setActive={setActive}
+              id={2}
+              active={active === 2}
+            >
+              كبير
+            </Select>
+          </div>
+        </div>
+        <div className="w-[90vw] aspect-auto mx-auto">
+          <img
+            src={
+              active === 0
+                ? smallCar
+                : active === 1
+                ? mediumCar
+                : bigCar
             }
+            alt={`car-size-${active}`}
           />
-          <CustomSelect
-            placeholder="اختر نوع الخدمة"
-            options={
-              SERVICES_OPTIONS[SERVICES.thermal].options
-            }
+        </div>
+      </div>
+      <div className="text-center min-h-screen">
+        <Heading content="الخطوة الثانية" />
+        <span className="font-arabic text-lg">
+          اختر حجم سيارتك
+        </span>
+
+        <div className="grid grid-columns p-8">
+          <ServicePackageCard
+            title="حماية الزجاج"
+            features={<h1>4</h1>}
           />
-        </Case>
-        <Case that={SERVICES.film}>
-          <Heading
-            content={SERVICES_OPTIONS[SERVICES.film].title}
+          <ServicePackageCard
+            title="حماية الزجاج"
+            features={<h1>4</h1>}
           />
-          <CustomSelect
-            placeholder="اختر نوع الخدمة"
-            options={
-              SERVICES_OPTIONS[SERVICES.film].options
-            }
+          <ServicePackageCard
+            title="حماية الزجاج"
+            features={<h1>4</h1>}
           />
-        </Case>
-        <Case that={SERVICES.glass}>
-          <Heading
-            content={SERVICES_OPTIONS[SERVICES.glass].title}
+          <ServicePackageCard
+            title="حماية الزجاج"
+            features={<h1>4</h1>}
           />
-          <CustomSelect
-            placeholder="اختر نوع الخدمة"
-            options={
-              SERVICES_OPTIONS[SERVICES.glass].options
-            }
+          <ServicePackageCard
+            title="حماية الزجاج"
+            features={<h1>4</h1>}
           />
-        </Case>
-        <Case that={SERVICES.nano}>
-          <Heading
-            content={SERVICES_OPTIONS[SERVICES.nano].title}
+          <ServicePackageCard
+            title="حماية الزجاج"
+            features={<h1>4</h1>}
           />
-          <CustomSelect
-            placeholder="اختر نوع الخدمة"
-            options={
-              SERVICES_OPTIONS[SERVICES.nano].options
-            }
-          />
-        </Case>
-        <Case that={SERVICES.protect}>
-          <Heading
-            content={
-              SERVICES_OPTIONS[SERVICES.protect].title
-            }
-          />
-          <CustomSelect
-            placeholder="اختر نوع الخدمة"
-            options={
-              SERVICES_OPTIONS[SERVICES.protect].options
-            }
-          />
-        </Case>
-        <Case that={SERVICES.polish}>
-          <Heading
-            content={
-              SERVICES_OPTIONS[SERVICES.polish].title
-            }
-          />
-          <CustomSelect
-            placeholder="اختر نوع الخدمة"
-            options={
-              SERVICES_OPTIONS[SERVICES.polish].options
-            }
-          />
-        </Case>
-      </Switch>
-      <Input
-        placeholder="الاسم الاول"
-        className="max-w-md font-arabic h-10 text-md mx-4"
-      />
-      <Input
-        placeholder="الاسم الثاني"
-        className="max-w-md font-arabic h-10 text-md mx-4"
-      />
-      <Input
-        placeholder="المدينة"
-        className="max-w-md font-arabic h-10 text-md mx-4"
-      />
-      <Input
-        placeholder="رقم الهاتف"
-        type="tel"
-        className="max-w-md font-arabic h-10 text-md mx-4"
-      />
-      <CarSizeSlider />
-      <Button className="font-arabic text-xl font-bold px-6 py-4">
-        أحجز الان
-      </Button>
-    </form>
+        </div>
+      </div>
+    </section>
   )
 }
 export default Services
 
 const Heading = ({ content }: { content: string }) => {
   return (
-    <h1 className="text-2xl font-semibold font-arabic text-primary w-fit mx-auto my-5">
+    <h1 className="text-2xl font-semibold font-arabic text-primary w-fit mx-auto py-5">
       {content}
     </h1>
+  )
+}
+
+type SelectProps = {
+  children: ReactNode
+  active?: boolean
+  id: number
+  setActive: React.Dispatch<React.SetStateAction<number>>
+}
+
+const Select = ({
+  children,
+  active = false,
+  setActive,
+  id,
+}: SelectProps) => {
+  return (
+    <button
+      type="button"
+      className={`font-arabic text-white text-lg ${
+        active ? "bg-black/70" : "bg-transparent"
+      } hover:text-primary px-5 py-3 rounded-full transition-colors duration-200`}
+      onClick={() => setActive(id)}
+    >
+      {children}
+    </button>
   )
 }

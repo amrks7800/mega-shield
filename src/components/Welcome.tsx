@@ -1,32 +1,36 @@
 import { motion } from "framer-motion"
+import { MainTitle } from "."
 
 const Welcome = () => {
   return (
     <section
       id="welcome"
-      className="min-h-screen bg-welcome bg-cover bg-center bg-no-repeat flex items-center justify-center relative overflow-hidden"
+      className="min-h-screen  flex justify-center relative overflow-hidden"
     >
-      <div className="absolute inset-0 bg-black/40" />
-      <div className="z-10 text-center">
-        <span
-          className="text-primary text-xl font-arabic font-semibold relative before:content-[''] before:absolute
-        before:h-full before:w-3 before:skew-y-[25deg] before:bg-primary before:-right-[20px] block w-fit mx-auto mb-4"
-        >
-          نبذة عن موقع ميجا شيلد
-        </span>
-        <h1 className="text-white sm:text-5xl text-3xl font-semibold font-arabic mx-auto w-fit text-center">
-          مرحبا بكم فى موقع ميجا شيلد
-        </h1>
+      <motion.div
+        initial={{ x: "100%" }}
+        whileInView={{ x: 0 }}
+        transition={{
+          bounce: 0.7,
+          delay: 0.2,
+          duration: 0.4,
+        }}
+        className="bg-welcome bg-cover bg-no-repeat bg-center flex-1 relative sm:block hidden"
+      />
+      <div className="z-10 text-center flex-1 flex justify-center flex-col">
+        <div className="max-w-[600px] sm:ps-7">
+          <MainTitle>مرحبا فى ميجا شيلد</MainTitle>
+        </div>
         <motion.p
           initial={{ translateX: 25, opacity: 0 }}
           whileInView={{
             translateX: 0,
             opacity: 1,
-            transition: { duration: 0.3, delay: 0.3 },
+            transition: { duration: 0.3, delay: 0.9 },
           }}
-          viewport={{ once: true, amount: 0.25 }}
+          viewport={{ amount: 0.25 }}
           className="font-arabic font-semibold text-md text-slate-300 max-w-[600px]
-      text-center mx-auto my-5"
+          text-right mx-auto my-5"
         >
           نحن فريق من المحترفين المتخصصين في تقديم أفضل
           أفلام تظليل النوافذ للسيارات والشركات والمنازل في
@@ -38,11 +42,11 @@ const Welcome = () => {
           whileInView={{
             translateX: 0,
             opacity: 1,
-            transition: { duration: 0.3, delay: 0.6 },
+            transition: { duration: 0.3, delay: 1.5 },
           }}
-          viewport={{ once: true, amount: 0.25 }}
+          viewport={{ amount: 0.25 }}
           className="font-arabic font-semibold text-md text-slate-300 max-w-[600px]
-      text-center mx-auto my-5"
+          text-right mx-auto my-5"
         >
           لقد اصبحنا شريكا موثوقا به للعديد من العملاء و
           الشركات ف المملكة. نحن نفتخر بتقدسم منتجات ذات
@@ -55,11 +59,11 @@ const Welcome = () => {
           whileInView={{
             translateX: 0,
             opacity: 1,
-            transition: { duration: 0.3, delay: 0.9 },
+            transition: { duration: 0.3, delay: 1.8 },
           }}
-          viewport={{ once: true, amount: 0.25 }}
+          viewport={{ amount: 0.25 }}
           className="font-arabic font-semibold text-md text-slate-300 max-w-[600px]
-      text-center mx-auto my-5"
+          text-right mx-auto my-5"
         >
           انضم الينا اليوم واستمتع بفوائد الحماية المتقدمة و
           المظهر الجمالي لنوافذ سيارتك و المباني الخاصة بك.

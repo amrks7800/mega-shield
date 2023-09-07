@@ -24,6 +24,7 @@ const Adds = () => {
           <h1 className="text-white sm:text-7xl text-4xl mb-4 font-bold font-arabic">
             تسوق الأن
           </h1>
+
           <ul
             className="flex flex-col justify-center items-start gap-4 list-none
           mb-6"
