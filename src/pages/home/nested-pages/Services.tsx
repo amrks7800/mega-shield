@@ -1,12 +1,12 @@
 import { ReactNode, useState } from "react"
-import { useParams } from "react-router-dom"
+// import { useParams } from "react-router-dom"
 import bigCar from "/big.webp"
 import mediumCar from "/medium.webp"
 import smallCar from "/small.webp"
 import ServicePackageCard from "@/components/ServicePackageCard"
 
 const Services = () => {
-  const { service } = useParams()
+  // const { service } = useParams()
   const [active, setActive] = useState(0)
 
   return (
