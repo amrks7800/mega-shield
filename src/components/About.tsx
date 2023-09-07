@@ -1,54 +1,61 @@
-import { SERVICES } from "@/constants"
-import { CarCard } from "."
+import { images } from "@/constants"
+import useCarousel from "@/hooks/useCarousel"
+import { ChevronUp } from "lucide-react"
 
 const About = () => {
+  const { page, next } = useCarousel({
+    time: 5000,
+    pages: 5,
+    autoPlay: true,
+  })
+
   return (
     <section
       id="about"
-      className="min-h-screen p-10 bg-carbon bg-center"
+      className="h-screen overflow-hidden relative"
     >
-      <h1 className="my-5 w-fit mx-auto text-3xl text-primary font-arabic font-bold">
-        خدماتنا
-      </h1>
-      <div className="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-8 max-w-[1000px] mx-auto">
-        <CarCard
-          index={1}
-          img={"bg-img1-s"}
-          text="العازل الحراري للسيارات"
-          path={SERVICES.thermal}
-        />
-        <CarCard
-          index={2}
-          img={"bg-img2-s"}
-          text="أفلام حماية السيارات"
-          path={SERVICES.film}
-        />
-        <CarCard
-          index={3}
-          img={"bg-img3-s"}
-          text="النانوسيراميك"
-          path={SERVICES.nano}
-        />
-        <CarCard
-          index={4}
-          img={"bg-img4-s"}
-          text="الحماية"
-          path={SERVICES.protect}
-        />
-        <CarCard
-          index={5}
-          img={"bg-img5-s"}
-          text="التلميع"
-          path={SERVICES.polish}
-        />
-        <CarCard
-          index={6}
-          img={"bg-img6-s"}
-          text="حماية الزجاج"
-          path={SERVICES.glass}
-        />
+      <div
+        className="absolute z-[1000] top-5 left-1/2 -translate-x-1/2 cursor-pointer"
+        onClick={next}
+      >
+        <ChevronUp size={40} color="#E22D48" />
       </div>
+      {images.map((item, i) => (
+        <Slide
+          img={item}
+          pageNumber={i! + 1}
+          currentPageNumber={page}
+          key={i}
+        />
+      ))}
     </section>
   )
 }
+
 export default About
+
+type SlideProps = {
+  pageNumber: number
+  img: string
+  currentPageNumber: number
+}
+
+const Slide = ({
+  pageNumber,
+  currentPageNumber,
+  img,
+}: SlideProps) => {
+  return (
+    <div
+      className={`absolute w-full h-full z-40 min-h-screen ${img} bg-cover bg-center bg-no-repeat flex items-center justify-center
+      ${
+        pageNumber === currentPageNumber
+          ? "bottom-0 "
+          : "-bottom-full delay-500"
+      }
+      transition-all duration-500`}
+    >
+      <div className="inset-0 absolute bg-black/40" />
+    </div>
+  )
+}

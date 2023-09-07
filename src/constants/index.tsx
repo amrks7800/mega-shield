@@ -286,3 +286,11 @@ export const whoAreWeContent = [
     </Reveal>
   </>,
 ]
+
+export const images = [
+  "bg-img1-s",
+  "bg-img2-s",
+  "bg-img3-s",
+  "bg-img4-s",
+  "bg-img5-s",
+]
