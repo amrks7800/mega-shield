@@ -1,5 +1,5 @@
 import { SearchCheck } from "lucide-react"
-import mobileCar from "/mobile-car.png"
+import mobileCar from "/reservation-mobile.png"
 import { motion } from "framer-motion"
 import { Link } from "react-router-dom"
 
@@ -19,9 +19,9 @@ const Adds = () => {
         className="flex-1 flex justify-center items-center bg-wheel bg-cover bg-no-repeat bg-blend-overlay
       relative"
       >
-        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-black/25" />
         <div className="z-10 text-center">
-          <h1 className="text-white sm:text-7xl text-4xl mb-4 font-bold font-arabic">
+          <h1 className="text-white sm:text-5xl text-4xl mb-4 font-bold font-arabic">
             تسوق الأن
           </h1>
 
@@ -66,19 +66,22 @@ const Adds = () => {
           transition: { delay: 1, duration: 2 },
         }}
         viewport={{ once: true }}
-        className="flex-1 flex justify-center items-center bg-primary/70"
+        className="flex-1 flex justify-center items-center bg-shopping bg-cover bg-no-repeat bg-blend-overlay relative"
       >
-        <div className="z-10 text-center">
-          <h1 className="text-white sm:text-7xl text-4xl mb-4 font-bold font-arabic">
-            أحجز معادك الان
+        <div className="z-10 text-center flex flex-col">
+          <div className="absolute inset-0 bg-black/25" />
+          <h1 className="text-white sm:text-5xl text-4xl z-50 font-bold font-arabic mb-4">
+            أحجز معادك
           </h1>
+
           <img
             src={mobileCar}
-            alt="car"
-            className="mx-auto my-4 w-52"
+            alt="reserve"
+            className="block mx-auto z-50 h-40"
           />
+
           <button
-            className="flex items-center justify-center text-3xl font-bold font-arabic h-20 w-[220px] bg-black mx-auto my-5
+            className="flex items-center justify-center z-50 text-3xl font-bold font-arabic h-20 w-[220px] bg-black mx-auto my-5
           border-4 border-solid border-transparent
           transition-colors hover:bg-transparent hover:border-black"
           >

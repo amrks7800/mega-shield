@@ -2,6 +2,7 @@ import {
   About,
   Adds,
   Carousel,
+  Locations,
   Welcome,
 } from "@/components"
 import { Route, Routes } from "react-router-dom"
@@ -32,6 +33,7 @@ const Page = () => (
     <Welcome />
     <About />
     <Adds />
+    <Locations />
   </div>
 )
 

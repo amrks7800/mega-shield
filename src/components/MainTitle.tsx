@@ -10,7 +10,7 @@ const MainTitle = ({ children }: MainTitleProps) => {
     <div className=" flex items-center justify-center gap-2 mx-3">
       <div className="flex-1 h-5">
         <motion.span
-          className="h-5 bg-primary origin-right block"
+          className="h-5 bg-primary origin-right block rounded-md"
           initial={{ width: 0 }}
           whileInView={{ width: "auto" }}
           transition={{ duration: 0.5, delay: 0.2 }}

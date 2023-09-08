@@ -80,7 +80,7 @@ const Slide = ({
       className={`absolute w-full h-full z-40 min-h-screen ${img} bg-cover bg-center bg-no-repeat flex items-center justify-center
       ${
         pageNumber === currentPageNumber
-          ? "bottom-0 "
+          ? "bottom-0"
           : "-bottom-full delay-500"
       }
       transition-all duration-500`}
