@@ -7,7 +7,7 @@ const Adds = () => {
   return (
     <section
       id="adds"
-      className="min-h-screen md:flex-row flex-col flex overflow-x-hidden"
+      className="cut-viewport md:flex-row flex-col flex overflow-x-hidden"
     >
       <motion.div
         initial={{ translateX: "100%" }}

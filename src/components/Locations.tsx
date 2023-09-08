@@ -5,13 +5,13 @@ import { MainTitle } from "."
 
 const Locations = () => {
   return (
-    <section className="h-screen overflow-hidden flex items-center justify-center relative">
+    <section className="cut-viewport overflow-hidden flex items-center justify-center relative">
       <motion.div
         initial={{ scale: 1 }}
         whileInView={{ scale: 1.5, y: 45 }}
         transition={{ duration: 1, delay: 1 }}
         viewport={{ once: true }}
-        className="block m-auto bg-planet bg-cover bg-center bg-no-repeat w-full h-full relative"
+        className="block m-auto bg-planet bg-cover bg-center bg-no-repeat w-full cut-viewport relative"
       />
       <div className="absolute inset-0 bg-gray-800/20" />
       <div className="absolute top-5 w-[250px]">

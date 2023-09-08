@@ -18,7 +18,7 @@ const Welcome = () => {
   return (
     <section
       id="welcome"
-      className="min-h-screen  flex justify-center relative overflow-hidden"
+      className="cut-viewport flex justify-center relative overflow-hidden"
       ref={ref}
     >
       <motion.div
@@ -33,7 +33,7 @@ const Welcome = () => {
           delay: 0.5,
           duration: 0.7,
         }}
-        className="bg-main bg-cover bg-no-repeat bg-center flex-1 relative sm:block hidden origin-right"
+        className="bg-main bg-contain ms-8 rounded-md overflow-hidden bg-no-repeat bg-center flex-1 relative sm:block hidden origin-right"
       />
       <div className="z-10 text-center flex-1 flex justify-center flex-col max-sm:bg-main bg-cover bg-center bg-no-repeat relative">
         <div className="absolute inset-0 bg-gray-800/20 sm:hidden" />

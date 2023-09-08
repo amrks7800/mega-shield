@@ -34,7 +34,7 @@ const About = () => {
   return (
     <section
       id="about"
-      className="h-screen overflow-hidden relative"
+      className="cut-viewport overflow-hidden relative"
     >
       <div
         className="absolute z-[1000] top-5 left-1/2 -translate-x-1/2 cursor-pointer"
@@ -77,7 +77,7 @@ const Slide = ({
 }: SlideProps) => {
   return (
     <div
-      className={`absolute w-full h-full z-40 min-h-screen ${img} bg-cover bg-center bg-no-repeat flex items-center justify-center
+      className={`absolute w-full h-full z-40 ${img} bg-cover bg-center bg-no-repeat flex items-center justify-center
       ${
         pageNumber === currentPageNumber
           ? "bottom-0"
