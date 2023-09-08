@@ -72,6 +72,7 @@ export const Reveal = ({
           ease: "easeIn",
           delay: delaySum(0),
         }}
+        className="rounded-lg"
         style={{
           position: "absolute",
           top: 4,

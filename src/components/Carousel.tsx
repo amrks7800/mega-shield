@@ -1,17 +1,17 @@
 import { motion } from "framer-motion"
-import arrow from "/arrow-car.png"
+
 import { CarIcon } from "lucide-react"
 
 const Carousel = () => {
   return (
     <div className="overflow-hidden">
       <motion.div
-        className="relative h-screen bg-main bg-cover bg-no-repeat bg-center flex flex-col items-center font-arabic justify-center"
+        className="relative h-[101vh] bg-carCabin bg-cover bg-no-repeat bg-center flex flex-col items-center font-arabic justify-center"
         initial={{ scale: 1.5, opacity: 0 }}
         whileInView={{ scale: 1, opacity: 1 }}
         transition={{ duration: 0.3, delay: 0.3 }}
       >
-        <div className="absolute inset-0 bg-gray-800/40"></div>
+        <div className="absolute inset-0 bg-gray-800/20" />
         <CarIcon
           size={50}
           color="#E22D48"
@@ -49,20 +49,37 @@ const Carousel = () => {
           أمن شكل جديد و حماية فائقة لسيارتك مع باقة من أقوي
           الخدمات و المنتجات
         </motion.p>
-        <motion.div
-          className="absolute bottom-5 left-1/2 -translate-x-1/2 w-14 cursor-pointer bounce"
-          initial={{ y: "200%", translateX: "-50%" }}
-          animate={{ y: 0 }}
-          transition={{ duration: 0.5, delay: 1.5 }}
-        >
+        <div className="absolute bottom-5 left-1/2 -translate-x-1/2 w-14 cursor-pointer flex flex-col justify-center items-center gap-4">
           <a href={"#welcome"}>
-            <img
-              src={arrow}
-              alt="arrow-car"
-              className="rotate-90"
-            />
+            <svg
+              width="40"
+              height="15"
+              viewBox="0 0 40 15"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className="arrow"
+            >
+              <path
+                d="M20 9L0 0l16.182 13.35a6 6 0 0 0 7.636 0L40 0 20 9z"
+                fill="#fff"
+              ></path>
+            </svg>
+            <svg
+              width="40"
+              height="15"
+              viewBox="0 0 40 15"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className="arrow"
+            >
+              <path
+                style={{ animationDelay: "0.5s" }}
+                d="M20 9L0 0l16.182 13.35a6 6 0 0 0 7.636 0L40 0 20 9z"
+                fill="#fff"
+              ></path>
+            </svg>
           </a>
-        </motion.div>
+        </div>
       </motion.div>
     </div>
   )

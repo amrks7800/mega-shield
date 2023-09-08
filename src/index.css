@@ -134,6 +134,10 @@ video {
   animation: MoveUpDown 2s linear infinite;
 }
 
+.arrow path {
+  animation: flash 4s ease-in-out 0s infinite both;
+}
+
 @keyframes MoveUpDown {
   0%,
   100% {
@@ -141,5 +145,16 @@ video {
   }
   50% {
     bottom: 20px;
+  }
+}
+
+@keyframes flash {
+  0%,
+  100% {
+    fill: #181818;
+  }
+  50% {
+    fill: white;
+    opacity: 1;
   }
 }

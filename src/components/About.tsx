@@ -81,7 +81,7 @@ const Slide = ({
       ${
         pageNumber === currentPageNumber
           ? "bottom-0 "
-          : "-bottom-full"
+          : "-bottom-full delay-500"
       }
       transition-all duration-500`}
     >

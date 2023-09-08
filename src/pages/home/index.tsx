@@ -13,10 +13,7 @@ const Home = () => {
   return (
     <Routes>
       <Route index element={<Page />} />
-      <Route
-        path="/service/:service"
-        element={<Services />}
-      />
+      <Route path="/service" element={<Services />} />
       <Route
         path="/description/:service"
         element={<ServicesDescription />}

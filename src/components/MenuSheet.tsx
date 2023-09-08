@@ -6,8 +6,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet"
 import { Menu } from "lucide-react"
-import { NavDropdown, NavLink } from "."
-import { SERVICES_LINKS } from "@/constants"
+import { NavLink } from "."
 
 const MenuSheet = () => {
   return (
@@ -24,10 +23,7 @@ const MenuSheet = () => {
               <NavLink to="/who">من نحن</NavLink>
               <NavLink to="/contact">تواصل معنا</NavLink>
               <NavLink to="/shopping">التسوق</NavLink>
-              <NavDropdown
-                name="الحجز اونلاين"
-                links={SERVICES_LINKS}
-              />
+              <NavLink to="/service">الحجز</NavLink>
             </nav>
           </SheetDescription>
         </SheetHeader>

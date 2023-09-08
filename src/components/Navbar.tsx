@@ -1,9 +1,5 @@
-import {
-  MenuSheet,
-  NavLink,
-  NavDropdown,
-} from "@/components"
-import { SERVICES_LINKS } from "@/constants"
+import { MenuSheet, NavLink } from "@/components"
+
 import logo from "/logo.png"
 import { motion } from "framer-motion"
 
@@ -24,7 +20,8 @@ const Navbar = () => {
         </motion.div>
         <NavLink to="/contact">تواصل</NavLink>
         <NavLink to="/shopping">التسوق</NavLink>
-        <NavDropdown name="الحجز" links={SERVICES_LINKS} />
+
+        <NavLink to="/service" children="الحجز" />
       </nav>
       <MenuSheet />
     </>

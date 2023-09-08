@@ -8,16 +8,16 @@ const Welcome = () => {
       className="min-h-screen  flex justify-center relative overflow-hidden"
     >
       <motion.div
-        initial={{ x: "100%" }}
-        whileInView={{ x: 0 }}
+        initial={{ scaleX: 3 }}
+        whileInView={{ scaleX: 1 }}
         transition={{
           bounce: 0.7,
-          delay: 0.2,
-          duration: 0.4,
+          delay: 0.5,
+          duration: 0.7,
         }}
-        className="bg-welcome bg-cover bg-no-repeat bg-center flex-1 relative sm:block hidden"
+        className="bg-main bg-cover bg-no-repeat bg-center flex-1 relative sm:block hidden origin-right"
       />
-      <div className="z-10 text-center flex-1 flex justify-center flex-col max-sm:bg-welcome bg-cover bg-center bg-no-repeat">
+      <div className="z-10 text-center flex-1 flex justify-center flex-col max-sm:bg-main bg-cover bg-center bg-no-repeat">
         <div className="max-w-[600px] sm:ps-7">
           <MainTitle>مرحبا فى ميجا شيلد</MainTitle>
         </div>
