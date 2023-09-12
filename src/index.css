@@ -81,6 +81,9 @@ strong {
 .cut-viewport {
   min-height: calc(100vh - 80px);
 }
+.cut-viewport-max {
+  max-height: calc(100vh - 80px);
+}
 
 img {
   max-width: 100%;

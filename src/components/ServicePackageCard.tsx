@@ -11,7 +11,7 @@ const ServicePackageCard = ({
 }: ServicePackageCardProps) => {
   return (
     <div
-      className="p-5 relative bg-package bg-cover bg-no-repeat min-h-[700px]
+      className="p-5 relative bg-package bg-cover bg-no-repeat min-h-[500px]
     rounded-lg overflow-hidden"
     >
       <div className="absolute inset-0 z-0 bg-black/40" />

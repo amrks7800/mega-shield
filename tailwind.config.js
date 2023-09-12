@@ -30,8 +30,8 @@ module.exports = {
       planet: "url('/planet.png')",
       "opaque-gradient":
         "linear-gradient(to left, rgba(0,67,116,0.6) -26.48%, rgba(0,51,102,0.6) 73.52%)",
-      room: "url('/public/booking-cars-bg.webp')",
-      package: "url('/public/packageBG.webp')",
+      room: "url('/garage.jpg')",
+      package: "url('/package-bg.jpg')",
     },
     fontFamily: {
       arabic: '"Almarai", sans-serif',
