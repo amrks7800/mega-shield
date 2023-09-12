@@ -9,12 +9,16 @@ interface Props {
   children: JSX.Element
   width?: "fit-content" | "100%"
   delay?: number
+  className?: string
+  once?: boolean
 }
 
 export const Reveal = ({
   children,
   width = "fit-content",
   delay,
+  className,
+  once = true,
 }: Props) => {
   const mainControls = useAnimation()
   const slideControls = useAnimation()
@@ -25,7 +29,7 @@ export const Reveal = ({
   }
 
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true })
+  const isInView = useInView(ref, { once })
 
   useEffect(() => {
     if (isInView) {
@@ -45,6 +49,7 @@ export const Reveal = ({
         width,
         overflow: "hidden",
       }}
+      className={className}
     >
       <motion.div
         variants={{

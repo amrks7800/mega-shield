@@ -3,6 +3,8 @@ import useCarousel from "@/hooks/useCarousel"
 import { ChevronUp } from "lucide-react"
 import DotsGroup from "./DotsGroup"
 import { useEffect, useState } from "react"
+import { Reveal } from "./animators/Reveal"
+import { Button } from "./ui/button"
 
 const About = () => {
   const [percentage, setPercentage] = useState(0)
@@ -86,6 +88,32 @@ const Slide = ({
       transition-all duration-500`}
     >
       <div className="inset-0 absolute bg-black/40" />
+      <div className="relative w-full h-full flex items-center justify-center z-50">
+        <div className="text-center">
+          <Reveal
+            delay={0.5}
+            className="mx-auto w-fit block"
+          >
+            <span className="font-arabic text-lg text-primary">
+              خدمة
+            </span>
+          </Reveal>
+          <Reveal
+            delay={0.8}
+            className="mx-auto w-fit block my-4"
+          >
+            <h1 className="mx-auto w-fit font-arabic text-3xl">
+              أفلام حماية الزجاج
+            </h1>
+          </Reveal>
+          <Button
+            className={`font-arabic text-lg transition-all hover:text-primary hover:bg-carCabin hover:bg-cover hover:bg-center hover:bg-no-repeat hover:scale-125 relative group flex mx-auto`}
+          >
+            <div className="inset-0 absolute bg-black/40 hidden group-hover:block" />
+            <span className="z-50">أحجز الآن</span>
+          </Button>
+        </div>
+      </div>
     </div>
   )
 }
