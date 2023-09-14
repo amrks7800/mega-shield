@@ -141,6 +141,12 @@ video {
   animation: flash 4s ease-in-out 0s infinite both;
 }
 
+.scaler::before {
+  animation: scaler 4s ease-in-out 0s infinite both;
+  top: 30px;
+  right: 80px;
+}
+
 .ltr {
   direction: ltr;
 }
@@ -163,5 +169,15 @@ video {
   50% {
     fill: white;
     opacity: 1;
+  }
+}
+
+@keyframes scaler {
+  0%,
+  100% {
+    scale: 1;
+  }
+  50% {
+    scale: 3;
   }
 }

@@ -1,10 +1,10 @@
-import { MailOpen, MapPin } from "lucide-react"
+import { Heart, MailOpen, MapPin } from "lucide-react"
 import { NavLink } from "."
 import logo from "/logo.png"
 
 const Footer = () => {
   return (
-    <footer className="flex flex-wrap sm:flex-row flex-col py-20">
+    <footer className="flex flex-wrap sm:flex-row flex-col py-20 border-t-2 border-dashed border-primary relative">
       <div className="flex-1 text-center px-4 basis-[25%] flex gap-4 flex-col items-center">
         <img src={logo} alt="logo" />
         <p
@@ -48,6 +48,13 @@ const Footer = () => {
             info@megashield.com
           </p>
         </span>
+      </div>
+      <div
+        className="flex absolute w-full h-[50px] sm:border-t border-solid border-primary
+      justify-center items-center text-primary gap-4 bottom-0 flex-row-reverse"
+      >
+        <span>MADE WITH</span>
+        <Heart color="#E22D48" size={30} />
       </div>
     </footer>
   )

@@ -16,10 +16,16 @@ const RootLayout = () => {
 
       <HoverCard>
         <HoverCardTrigger
-          className="fixed bottom-5 right-0 z-[10000000000]
+          className="fixed -bottom-2 -right-8 z-[10000000000]
         w-32 cursor-pointer hover:scale-110
-        transition-transform duration-200"
+        transition-transform duration-200
+        
+        "
         >
+          <div
+            className="w-[20px] aspect-square rounded-full
+        bg-green-500/50 scaler absolute translate-x-1/2 -translate-y-1/2 z-[1]"
+          />
           <a
             href="https://wa.me/+96659325444"
             target="_blank"
