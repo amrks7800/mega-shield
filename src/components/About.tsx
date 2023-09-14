@@ -117,17 +117,17 @@ const Slide = ({
               {title}
             </h1>
           </Reveal>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-7 justify-center">
             <Link to={"/service"}>
               <Button
-                className={`font-arabic text-lg transition-all hover:text-primary hover:bg-carCabin hover:bg-cover hover:bg-center hover:bg-no-repeat hover:scale-125 relative group flex mx-auto`}
+                className={`font-arabic text-lg transition-all hover:text-primary hover:bg-carCabin hover:bg-cover hover:bg-center hover:bg-no-repeat hover:scale-125 relative group flex `}
               >
                 <div className="inset-0 absolute bg-black/40 hidden group-hover:block" />
                 <span className="z-50">أحجز الآن</span>
               </Button>
             </Link>
             <Button
-              className="px-5 py-[7px] rounded-lg bg-orange-400 font-arabic text-lg transition-all hover:text-primary hover:bg-carCabin hover:bg-cover hover:bg-center hover:bg-no-repeat hover:scale-125 relative group flex mx-auto"
+              className="px-5 py-[7px] rounded-lg bg-orange-400 font-arabic text-lg transition-all hover:text-primary hover:bg-carCabin hover:bg-cover hover:bg-center hover:bg-no-repeat hover:scale-125 relative group flex "
               onClick={() => setIsOpen(prev => !prev)}
             >
               المزيد

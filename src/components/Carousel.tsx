@@ -11,7 +11,7 @@ const Carousel = () => {
         whileInView={{ scale: 1, opacity: 1 }}
         transition={{ duration: 0.3, delay: 0.3 }}
       >
-        <div className="absolute inset-0 bg-gray-800/40" />
+        <div className="absolute inset-0 bg-black/20 backdrop-blur-sm" />
         <CarIcon
           size={50}
           color="#E22D48"
