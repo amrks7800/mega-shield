@@ -9,13 +9,15 @@ import { Menu } from "lucide-react"
 import { NavLink } from "."
 import { useEffect, useRef } from "react"
 import { useLocation } from "react-router-dom"
+import { useInView } from "framer-motion"
 
 const MenuSheet = () => {
   const ref = useRef<HTMLButtonElement>(null)
   const location = useLocation()
+  const isInView = useInView(ref)
 
   useEffect(() => {
-    ref?.current?.click()
+    if (isInView) ref?.current?.click()
   }, [location.pathname])
   return (
     <Sheet>
