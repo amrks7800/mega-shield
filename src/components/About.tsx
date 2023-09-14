@@ -7,6 +7,7 @@ import { Reveal } from "./animators/Reveal"
 import { Button } from "./ui/button"
 import { SERVICES } from "@/constants"
 import { MoreDialog } from "."
+import { Link } from "react-router-dom"
 
 const About = () => {
   const [percentage, setPercentage] = useState(0)
@@ -117,12 +118,14 @@ const Slide = ({
             </h1>
           </Reveal>
           <div className="flex items-center gap-3">
-            <Button
-              className={`font-arabic text-lg transition-all hover:text-primary hover:bg-carCabin hover:bg-cover hover:bg-center hover:bg-no-repeat hover:scale-125 relative group flex mx-auto`}
-            >
-              <div className="inset-0 absolute bg-black/40 hidden group-hover:block" />
-              <span className="z-50">أحجز الآن</span>
-            </Button>
+            <Link to={"/service"}>
+              <Button
+                className={`font-arabic text-lg transition-all hover:text-primary hover:bg-carCabin hover:bg-cover hover:bg-center hover:bg-no-repeat hover:scale-125 relative group flex mx-auto`}
+              >
+                <div className="inset-0 absolute bg-black/40 hidden group-hover:block" />
+                <span className="z-50">أحجز الآن</span>
+              </Button>
+            </Link>
             <Button
               className="px-5 py-[7px] rounded-lg bg-orange-400 font-arabic text-lg transition-all hover:text-primary hover:bg-carCabin hover:bg-cover hover:bg-center hover:bg-no-repeat hover:scale-125 relative group flex mx-auto"
               onClick={() => setIsOpen(prev => !prev)}

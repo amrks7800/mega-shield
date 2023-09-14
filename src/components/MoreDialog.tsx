@@ -15,7 +15,10 @@ type DialogProps = {
 const MoreDialog = ({ isOpen, setIsOpen }: DialogProps) => {
   return (
     <Dialog open={isOpen}>
-      <DialogContent className="bg-[#333]" dir="rtl">
+      <DialogContent
+        className="bg-slate-400/20 backdrop-blur-lg border-none shadow-xl"
+        dir="rtl"
+      >
         <DialogHeader>
           <DialogDescription
             className="text-white text-base text-right font-arabic"
@@ -49,7 +52,7 @@ const MoreDialog = ({ isOpen, setIsOpen }: DialogProps) => {
               .
             </p>
           </DialogDescription>
-          <div className="flex items-center gap-3 my-5">
+          <div className="flex items-center gap-3 mb-5 mt-10 justify-center">
             <Button
               onClick={() => setIsOpen(false)}
               className="font-arabic min-w-[100px]"
