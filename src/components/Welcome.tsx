@@ -18,7 +18,7 @@ const Welcome = () => {
   return (
     <section
       id="welcome"
-      className="cut-viewport flex justify-center relative overflow-hidden"
+      className="cut-viewport md:py-8 flex justify-center md:flex-row flex-col gap-5 relative overflow-hidden bg-slate-400/20 backdrop-blur-lg bg-carbon"
       ref={ref}
     >
       <motion.div
@@ -33,9 +33,9 @@ const Welcome = () => {
           delay: 0.5,
           duration: 0.7,
         }}
-        className="bg-main bg-contain ms-8 rounded-md overflow-hidden bg-no-repeat bg-center flex-1 relative sm:block hidden origin-right"
+        className="bg-main bg-contain max-md:hidden md:ms-8 rounded-md overflow-hidden bg-no-repeat bg-center flex-1 relative origin-right"
       />
-      <div className="z-10 text-center flex-1 flex justify-center flex-col max-sm:bg-main bg-cover bg-center bg-no-repeat relative">
+      <div className="z-10 text-center flex-1 flex justify-center flex-col relative">
         <div className="absolute inset-0 bg-gray-800/20 sm:hidden" />
         <div className="max-w-[600px] sm:ps-7 z-40">
           <MainTitle>مرحبا فى ميجا شيلد</MainTitle>

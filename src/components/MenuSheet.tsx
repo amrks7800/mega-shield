@@ -7,11 +7,19 @@ import {
 } from "@/components/ui/sheet"
 import { Menu } from "lucide-react"
 import { NavLink } from "."
+import { useEffect, useRef } from "react"
+import { useLocation } from "react-router-dom"
 
 const MenuSheet = () => {
+  const ref = useRef<HTMLButtonElement>(null)
+  const location = useLocation()
+
+  useEffect(() => {
+    ref?.current?.click()
+  }, [location.pathname])
   return (
     <Sheet>
-      <SheetTrigger className="sm:hidden block">
+      <SheetTrigger className="sm:hidden block" ref={ref}>
         <Menu size={25} fill="#E34569" />
       </SheetTrigger>
       <SheetContent className="bg-[#333] text-slate-200 z-[5000000000000000]">
