@@ -6,6 +6,7 @@ import { Packages } from "@/components"
 
 const Services = () => {
   const [active, setActive] = useState(0)
+  const [className, setClassName] = useState("opacity-1")
 
   return (
     <section className="text-center py-20">
@@ -21,6 +22,7 @@ const Services = () => {
               setActive={setActive}
               id={0}
               active={active === 0}
+              setClassName={setClassName}
             >
               صغير
             </SelectCard>
@@ -29,6 +31,7 @@ const Services = () => {
               setActive={setActive}
               id={1}
               active={active === 1}
+              setClassName={setClassName}
             >
               وسط
             </SelectCard>
@@ -37,6 +40,7 @@ const Services = () => {
               setActive={setActive}
               id={2}
               active={active === 2}
+              setClassName={setClassName}
             >
               كبير
             </SelectCard>
@@ -52,6 +56,7 @@ const Services = () => {
                 : bigCar
             }
             alt={`car-size-${active}`}
+            className={`${className} transition-all duration-300`}
           />
         </div>
       </div>
@@ -74,6 +79,7 @@ type SelectCardProps = {
   active?: boolean
   id: number
   setActive: React.Dispatch<React.SetStateAction<number>>
+  setClassName: React.Dispatch<React.SetStateAction<string>>
   img: string
 }
 
@@ -81,6 +87,7 @@ const SelectCard = ({
   children,
   active = false,
   setActive,
+  setClassName,
   id,
   img,
 }: SelectCardProps) => {
@@ -91,7 +98,13 @@ const SelectCard = ({
         active ? " border-green-600" : "border-transparent"
       } hover:text-primary px-5 py-3 rounded-md transition-colors duration-200
       bg-[#333]/70 backdrop-blur-sm`}
-      onClick={() => setActive(id)}
+      onClick={() => {
+        setClassName("opacity-0 translate-y-[15px]")
+        setTimeout(() => {
+          setClassName("opacity-1 translate-y-0")
+          setActive(id)
+        }, 600)
+      }}
     >
       <h1 className="w-fit mx-auto text-xl text-primary">
         {children}

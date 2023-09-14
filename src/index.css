@@ -141,6 +141,10 @@ video {
   animation: flash 4s ease-in-out 0s infinite both;
 }
 
+.ltr {
+  direction: ltr;
+}
+
 @keyframes MoveUpDown {
   0%,
   100% {

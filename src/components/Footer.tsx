@@ -17,7 +17,7 @@ const Footer = () => {
           لعملائنا في قطاع الأعمال والفردية.
         </p>
       </div>
-      <div className="flex-1 text-center px-4 basis-[25%] flex gap-4 flex-col items-start">
+      <div className="flex-1 text-center px-4 basis-[25%] flex gap-4 flex-col sm:items-start items-center sm:mb-0 mb-5">
         <NavLink to="/">الرئيسية</NavLink>
         <NavLink to="/insurance">الضمان</NavLink>
         <NavLink to="/who">من نحن</NavLink>
@@ -25,14 +25,14 @@ const Footer = () => {
         <NavLink to="/reserve">الحجز اونلاين</NavLink>
         <NavLink to="/shopping">التسوق</NavLink>
       </div>
-      <div className="flex-1 text-center px-4 basis-[25%] flex gap-4 flex-col items-start">
+      <div className="flex-1 text-center px-4 basis-[25%] flex gap-4 flex-col sm:items-start items-center">
         <NavLink to="/">إفلام نانوسيراميك للنوافذ</NavLink>
         <NavLink to="/">طلاء سيراميك للحماية</NavLink>
         <NavLink to="/">فيلم حماية الدهان</NavLink>
         <NavLink to="/">العزل الحراري</NavLink>
       </div>
-      <div className="flex-1 px-4 basis-[25%]">
-        <h1 className="text-primary text-2xl">
+      <div className="flex-1 px-4 basis-[25%] sm:border-t-0 border-t border-solid border-primary mt-4">
+        <h1 className="text-primary text-2xl text-right ltr">
           +966593254444
         </h1>
         <span className="flex items-center gap-2 my-3">
