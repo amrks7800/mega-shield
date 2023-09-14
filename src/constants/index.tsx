@@ -2,12 +2,12 @@ import { Reveal } from "@/components/animators/Reveal"
 import spots from "/car-spots.png"
 
 export enum SERVICES {
-  thermal = "thermal",
-  film = "protect-film",
-  nano = "nano",
-  protect = "complete-protect",
-  polish = "polish",
-  glass = "glass",
+  thermal = "العازل الحرارى",
+  nano = " حماية النانو سيراميك ",
+  protect = "افالم حماية السيارة",
+  polish = "تلميع ميجا االحترافى",
+  care = "العناية الفائقة",
+  offers = "الباقات والعروض",
 }
 
 export const PRODUCTS = {
@@ -41,10 +41,6 @@ export const SERVICES_OPTIONS = {
     ],
     title: "حجز خدمة العازل الحراري",
   },
-  [SERVICES.film]: {
-    options: ["افلام حماية ملونة", "افلام حماية شفافة"],
-    title: "حجز افلام الحماية",
-  },
   [SERVICES.nano]: {
     options: [
       "نانوسيراميك 3 طبقات",
@@ -68,17 +64,9 @@ export const SERVICES_OPTIONS = {
     ],
     title: "حجز التلميع",
   },
-  [SERVICES.glass]: {
-    options: ["حماية الزجاج الامامي ضد الكسر (بدون ضمان)"],
-    title: "حجز حماية الزجاج",
-  },
 }
 
 export const SERVICES_LINKS = [
-  {
-    name: SERVICES_OPTIONS[SERVICES.film].title,
-    href: `/service/${SERVICES.film}`,
-  },
   {
     name: SERVICES_OPTIONS[SERVICES.nano].title,
     href: `/service/${SERVICES.nano}`,
@@ -87,10 +75,7 @@ export const SERVICES_LINKS = [
     name: SERVICES_OPTIONS[SERVICES.thermal].title,
     href: `/service/${SERVICES.thermal}`,
   },
-  {
-    name: SERVICES_OPTIONS[SERVICES.glass].title,
-    href: `/service/${SERVICES.glass}`,
-  },
+
   {
     name: SERVICES_OPTIONS[SERVICES.polish].title,
     href: `/service/${SERVICES.polish}`,
@@ -126,7 +111,7 @@ export const products = [
 ]
 
 export const SERVICES_DESCRIPTION = {
-  [SERVICES.film]: [
+  [SERVICES.protect]: [
     <>
       <p>
         تم تصميم فيلم حماية الطلاء (PPF) خصيصًا لحماية سطح

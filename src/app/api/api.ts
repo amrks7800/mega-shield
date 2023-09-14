@@ -8,5 +8,11 @@ export const apiSlice = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: "/api",
   }),
-  endpoints: () => ({}),
+  endpoints: builder => ({
+    getMe: builder.query({
+      query: () => ({
+        url: "",
+      }),
+    }),
+  }),
 })

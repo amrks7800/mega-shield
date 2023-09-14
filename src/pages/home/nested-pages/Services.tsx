@@ -2,7 +2,7 @@ import { ReactNode, useState } from "react"
 import bigCar from "/big.webp"
 import mediumCar from "/medium.webp"
 import smallCar from "/small.webp"
-import ServicePackageCard from "@/components/ServicePackageCard"
+import { Packages } from "@/components"
 
 const Services = () => {
   const [active, setActive] = useState(0)
@@ -55,39 +55,7 @@ const Services = () => {
           />
         </div>
       </div>
-      <div className="text-center min-h-screen">
-        <Heading content="الخطوة الثانية" />
-        <span className="font-arabic text-lg">
-          اختر الخدمة و الباقة
-        </span>
-
-        <div className="grid grid-columns p-8">
-          <ServicePackageCard
-            title="حماية الزجاج"
-            features={<h1>4</h1>}
-          />
-          <ServicePackageCard
-            title="حماية الزجاج"
-            features={<h1>4</h1>}
-          />
-          <ServicePackageCard
-            title="حماية الزجاج"
-            features={<h1>4</h1>}
-          />
-          <ServicePackageCard
-            title="حماية الزجاج"
-            features={<h1>4</h1>}
-          />
-          <ServicePackageCard
-            title="حماية الزجاج"
-            features={<h1>4</h1>}
-          />
-          <ServicePackageCard
-            title="حماية الزجاج"
-            features={<h1>4</h1>}
-          />
-        </div>
-      </div>
+      <Packages />
     </section>
   )
 }

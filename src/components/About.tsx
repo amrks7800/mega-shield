@@ -5,9 +5,12 @@ import DotsGroup from "./DotsGroup"
 import { useEffect, useState } from "react"
 import { Reveal } from "./animators/Reveal"
 import { Button } from "./ui/button"
+import { SERVICES } from "@/constants"
+import { MoreDialog } from "."
 
 const About = () => {
   const [percentage, setPercentage] = useState(0)
+  const [isOpen, setIsOpen] = useState(false)
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -39,7 +42,7 @@ const About = () => {
       className="cut-viewport overflow-hidden relative"
     >
       <div
-        className="absolute z-[1000] top-5 left-1/2 -translate-x-1/2 cursor-pointer"
+        className="absolute z-[40] top-5 left-1/2 -translate-x-1/2 cursor-pointer"
         onClick={next}
       >
         <ChevronUp size={40} color="#E22D48" />
@@ -50,9 +53,11 @@ const About = () => {
           pageNumber={i! + 1}
           currentPageNumber={page}
           key={i}
+          title={Object.values(SERVICES)[i]}
+          setIsOpen={setIsOpen}
         />
       ))}
-      <div className="absolute z-[1000] bottom-5 left-1/2 -translate-x-1/2">
+      <div className="absolute z-[40] bottom-5 left-1/2 -translate-x-1/2">
         <DotsGroup
           page={page}
           percentage={percentage}
@@ -60,6 +65,7 @@ const About = () => {
           setPercentage={setPercentage}
         />
       </div>
+      <MoreDialog isOpen={isOpen} setIsOpen={setIsOpen} />
     </section>
   )
 }
@@ -70,12 +76,16 @@ type SlideProps = {
   pageNumber: number
   img: string
   currentPageNumber: number
+  title: string
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 const Slide = ({
   pageNumber,
   currentPageNumber,
   img,
+  title,
+  setIsOpen,
 }: SlideProps) => {
   return (
     <div
@@ -103,15 +113,23 @@ const Slide = ({
             className="mx-auto w-fit block my-4"
           >
             <h1 className="mx-auto w-fit font-arabic text-3xl">
-              أفلام حماية الزجاج
+              {title}
             </h1>
           </Reveal>
-          <Button
-            className={`font-arabic text-lg transition-all hover:text-primary hover:bg-carCabin hover:bg-cover hover:bg-center hover:bg-no-repeat hover:scale-125 relative group flex mx-auto`}
-          >
-            <div className="inset-0 absolute bg-black/40 hidden group-hover:block" />
-            <span className="z-50">أحجز الآن</span>
-          </Button>
+          <div className="flex items-center gap-3">
+            <Button
+              className={`font-arabic text-lg transition-all hover:text-primary hover:bg-carCabin hover:bg-cover hover:bg-center hover:bg-no-repeat hover:scale-125 relative group flex mx-auto`}
+            >
+              <div className="inset-0 absolute bg-black/40 hidden group-hover:block" />
+              <span className="z-50">أحجز الآن</span>
+            </Button>
+            <Button
+              className="px-5 py-[7px] rounded-lg bg-orange-400 font-arabic text-lg transition-all hover:text-primary hover:bg-carCabin hover:bg-cover hover:bg-center hover:bg-no-repeat hover:scale-125 relative group flex mx-auto"
+              onClick={() => setIsOpen(prev => !prev)}
+            >
+              المزيد
+            </Button>
+          </div>
         </div>
       </div>
     </div>
