@@ -42,7 +42,7 @@ const About = () => {
       className="cut-viewport overflow-hidden relative"
     >
       <div
-        className="absolute z-[40] top-5 left-1/2 -translate-x-1/2 cursor-pointer"
+        className="absolute z-[60] top-5 left-1/2 -translate-x-1/2 cursor-pointer"
         onClick={next}
       >
         <ChevronUp size={40} color="#E22D48" />
