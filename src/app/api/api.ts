@@ -6,13 +6,7 @@ import {
 export const apiSlice = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({
-    baseUrl: "/api",
+    baseUrl: "https://megashield.onrender.com",
   }),
-  endpoints: builder => ({
-    getMe: builder.query({
-      query: () => ({
-        url: "",
-      }),
-    }),
-  }),
+  endpoints: () => ({}),
 })

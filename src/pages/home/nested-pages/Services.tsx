@@ -2,14 +2,14 @@ import { ReactNode, useState } from "react"
 import bigCar from "/big.webp"
 import mediumCar from "/medium.webp"
 import smallCar from "/small.webp"
-import { Packages } from "@/components"
+import { Packages, PersonalInfo } from "@/components"
 
 const Services = () => {
-  const [active, setActive] = useState(0)
+  const [active, setActive] = useState<0 | 1 | 2>(0)
   const [className, setClassName] = useState("opacity-1")
 
   return (
-    <section className="text-center py-20">
+    <section className="text-center py-20 bg-slate-950">
       <div className="text-center bg-room bg-cover bg-center bg-no-repeat">
         <div className="text-center">
           <Heading content="الخطوة الاولي" />
@@ -61,6 +61,7 @@ const Services = () => {
         </div>
       </div>
       <Packages />
+      <PersonalInfo carSize={active} />
     </section>
   )
 }
@@ -77,8 +78,8 @@ const Heading = ({ content }: { content: string }) => {
 type SelectCardProps = {
   children: ReactNode
   active?: boolean
-  id: number
-  setActive: React.Dispatch<React.SetStateAction<number>>
+  id: 0 | 1 | 2
+  setActive: React.Dispatch<React.SetStateAction<0 | 1 | 2>>
   setClassName: React.Dispatch<React.SetStateAction<string>>
   img: string
 }

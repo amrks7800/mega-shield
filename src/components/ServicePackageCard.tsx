@@ -14,7 +14,7 @@ const ServicePackageCard = ({
   price,
 }: ServicePackageCardProps) => {
   return (
-    <div className="overflow-hidden relative flex flex-col">
+    <div className="overflow-hidden relative flex flex-col rounded-lg">
       <div
         className="absolute h-[50px] w-52 border-y-2 border-solid border-slate-400 flex items-center justify-center
       -rotate-45 top-5 -left-12 z-[100] bg-slate-400/20 backdrop-blur-lg text-white text-md

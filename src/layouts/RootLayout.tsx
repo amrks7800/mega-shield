@@ -1,5 +1,5 @@
-import { Footer, Header } from "@/components"
-import { Outlet } from "react-router-dom"
+import { AuthSheet, Footer, Header } from "@/components"
+import { Outlet, useLocation } from "react-router-dom"
 import whatsapp from "/whatsapp.png"
 import {
   HoverCard,
@@ -8,11 +8,16 @@ import {
 } from "@/components/ui/hover-card"
 
 const RootLayout = () => {
+  const pathname = useLocation().pathname
+
+  const header = !pathname.includes("dash") && <Header />
+  const footer = !pathname.includes("dash") && <Footer />
   return (
     <>
-      <Header />
+      <AuthSheet />
+      {header}
       <Outlet />
-      <Footer />
+      {footer}
 
       <HoverCard>
         <HoverCardTrigger

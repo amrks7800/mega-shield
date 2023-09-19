@@ -13,9 +13,8 @@ html {
 body {
   direction: rtl;
   font-family: "Barlow Condensed", sans-serif;
-  background-color: #030303;
   color-scheme: dark;
-  @apply text-slate-200;
+  @apply text-slate-200 bg-slate-950;
 }
 
 div,
@@ -120,6 +119,17 @@ video {
   );
 }
 
+/* Hide scrollbar for Chrome, Safari and Opera */
+.no-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scroll {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
 .scale-in {
   animation: scaleIn 8s ease 0s both infinite;
 }
@@ -141,10 +151,8 @@ video {
   animation: flash 4s ease-in-out 0s infinite both;
 }
 
-.scaler::before {
+.scaler {
   animation: scaler 4s ease-in-out 0s infinite both;
-  top: 30px;
-  right: 80px;
 }
 
 .ltr {
@@ -178,6 +186,6 @@ video {
     scale: 1;
   }
   50% {
-    scale: 3;
+    scale: 1.1;
   }
 }

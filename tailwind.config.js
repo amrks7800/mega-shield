@@ -44,6 +44,9 @@ module.exports = {
       },
     },
     extend: {
+      boxShadow: {
+        blur: "#424584 0px 7px 29px 0px",
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

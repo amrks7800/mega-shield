@@ -7,6 +7,7 @@ const Packages = () => {
   const [activeService, setActiveService] = useState(
     SERVICES.protect
   )
+
   return (
     <div className="text-center min-h-screen">
       <h1 className="text-2xl font-semibold font-arabic text-primary w-fit mx-auto py-5">
@@ -16,24 +17,26 @@ const Packages = () => {
         اختر الخدمة و الباقة
       </span>
 
-      <div className="flex my-5 flex-wrap items-center gap-4 justify-center">
-        <For each={Object.entries(SERVICES)}>
-          {(item, i) => (
-            <div
-              key={i}
-              className={`flex items-center justify-center p-3 rounded-full font-arabic text-base font-bold
+      <div className="w-[95vw] overflow-x-auto no-scroll">
+        <div className="flex m-5 min-w-[950px] items-center gap-4 justify-center">
+          <For each={Object.entries(SERVICES)}>
+            {(item, i) => (
+              <div
+                key={i}
+                className={`flex shrink-0 items-center justify-center p-3 rounded-full font-arabic text-base font-bold
               hover:text-primary transition-colors cursor-pointer
                ${
                  item[1] === activeService
                    ? "bg-[#333] backdrop-blur-md text-primary"
                    : "bg-transparent"
                }`}
-              onClick={() => setActiveService(item[1])}
-            >
-              {item[1]}
-            </div>
-          )}
-        </For>
+                onClick={() => setActiveService(item[1])}
+              >
+                {item[1]}
+              </div>
+            )}
+          </For>
+        </div>
       </div>
 
       <div className="grid grid-columns p-8">

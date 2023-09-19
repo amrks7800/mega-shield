@@ -19,6 +19,7 @@ const MenuSheet = () => {
   useEffect(() => {
     if (isInView) ref?.current?.click()
   }, [location.pathname])
+
   return (
     <Sheet>
       <SheetTrigger className="sm:hidden block" ref={ref}>
