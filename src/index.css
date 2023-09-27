@@ -14,7 +14,7 @@ body {
   direction: rtl;
   font-family: "Barlow Condensed", sans-serif;
   color-scheme: dark;
-  @apply text-slate-200 bg-slate-950;
+  @apply text-slate-300 bg-black;
 }
 
 div,

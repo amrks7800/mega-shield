@@ -13,6 +13,7 @@ import Products from "./nested-pages/Products"
 import Services from "./nested-pages/Services"
 import logo from "/logo.png"
 import { BeatLoader } from "react-spinners"
+import { ProductModal } from "@/components"
 
 const Dashboard = () => {
   const { data, error, isLoading } = useGetMeQuery("")
@@ -54,6 +55,7 @@ const Dashboard = () => {
         </DashboardLink>
       </div>
       <div className="flex-1 p-5">
+        <ProductModal mode="add" withButton />
         <Routes>
           <Route path="products/*" element={<Products />} />
           <Route path="services/*" element={<Services />} />

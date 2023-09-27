@@ -32,6 +32,8 @@ module.exports = {
         "linear-gradient(to left, rgba(0,67,116,0.6) -26.48%, rgba(0,51,102,0.6) 73.52%)",
       room: "url('/garage.jpg')",
       package: "url('/package-bg.jpg')",
+      "blue-red":
+        "linear-gradient(to right, #f43b48 0%, #453a94 100%)",
     },
     fontFamily: {
       arabic: '"Almarai", sans-serif',

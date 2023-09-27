@@ -279,3 +279,66 @@ export const images = [
   "bg-img4-s",
   "bg-img5-s",
 ]
+
+export const MAIN_SERVICES = {
+  protectionFilm: {
+    name: "أفلام الحماية",
+    services: [
+      {
+        name: "حماية الزجاج",
+        packages: [
+          {
+            name: "حماية الزجاج الأمامي",
+          },
+          {
+            name: "حماية الزجاج البانوراما",
+          },
+        ],
+      },
+      {
+        name: "حماية الطلاء",
+        packages: [
+          {
+            name: "شفاف مطفي",
+          },
+          {
+            name: "شفاف لامع",
+          },
+          {
+            name: "ألوان",
+          },
+        ],
+      },
+      {
+        name: "الحماية الداخلية",
+        packages: [
+          {
+            name: "الحماية الداخلية",
+          },
+        ],
+      },
+    ],
+  },
+  thermalInsulator: {
+    name: "العازل الحراري",
+    services: [
+      {
+        name: "العازل الحراري",
+        packages: [
+          {
+            name: "Mega Ceramic",
+          },
+          {
+            name: "Ceramic Plus",
+          },
+          {
+            name: "Vague Sun",
+          },
+          {
+            name: "Smart Film",
+          },
+        ],
+      },
+    ],
+  },
+}

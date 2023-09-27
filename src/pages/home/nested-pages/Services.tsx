@@ -9,7 +9,7 @@ const Services = () => {
   const [className, setClassName] = useState("opacity-1")
 
   return (
-    <section className="text-center py-20 bg-slate-950">
+    <section className="text-center py-20">
       <div className="text-center bg-room bg-cover bg-center bg-no-repeat">
         <div className="text-center">
           <Heading content="الخطوة الاولي" />
