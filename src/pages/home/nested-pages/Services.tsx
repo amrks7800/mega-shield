@@ -2,11 +2,8 @@ import { ReactNode, useEffect, useState } from "react"
 import bigCar from "/big.webp"
 import mediumCar from "/medium.webp"
 import smallCar from "/small.webp"
-import {
-  AdditionalServices,
-  Packages,
-  PersonalInfo,
-} from "@/components"
+import { Packages, PersonalInfo } from "@/components"
+import { Link } from "react-router-dom"
 
 const Services = () => {
   const [active, setActive] = useState<0 | 1 | 2>(0)
@@ -75,7 +72,8 @@ const Services = () => {
         packages={packages}
         setPackages={setPackages}
       />
-      <AdditionalServices />
+      <Link to="/dash/services">dash</Link>
+      {/* <AdditionalServices /> */}
       <PersonalInfo
         setPackages={setPackages}
         packages={packages}
