@@ -1,4 +1,5 @@
 import RootLayout from "@/layouts/RootLayout"
+import Contact from "@/pages/contact"
 import Dashboard from "@/pages/dashboard"
 import Home from "@/pages/home"
 import Shopping from "@/pages/shopping"
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
       {
         path: "/dash/*",
         element: <Dashboard />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
       },
     ],
   },

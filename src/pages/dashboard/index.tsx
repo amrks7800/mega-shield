@@ -1,6 +1,6 @@
 import { useGetMeQuery } from "@/app/api/AuthApiSlice"
 import { toggleAuth } from "@/app/features/AuthSlice"
-import { useAppDispatch } from "@/app/hooks"
+import { useAppDispatch, useAppSelector } from "@/app/hooks"
 import { DashboardLinkProps } from "@/types"
 import { useEffect } from "react"
 import {
@@ -13,11 +13,15 @@ import Products from "./nested-pages/Products"
 import Services from "./nested-pages/Services"
 import logo from "/logo.png"
 import { BeatLoader } from "react-spinners"
-import { ProductModal } from "@/components"
+import { IsSidebarOpenSelector } from "@/app/features/ProductSlice"
 
 const Dashboard = () => {
   const { data, error, isLoading } = useGetMeQuery("")
   const dispatch = useAppDispatch()
+
+  const isSidebarOpen = useAppSelector(
+    IsSidebarOpenSelector
+  )
 
   useEffect(() => {
     if (error) {
@@ -27,7 +31,7 @@ const Dashboard = () => {
     }
   }, [error, data])
   return (
-    <div className="flex min-h-screen relative">
+    <div className="flex min-h-screen relative items-stretch">
       {isLoading && (
         <div className="absolute bg-slate-400/20 backdrop-blur-lg z-[150] inset-0 grid place-content-center">
           <BeatLoader
@@ -37,7 +41,13 @@ const Dashboard = () => {
           />
         </div>
       )}
-      <div className="basis-[240px] border-e border-solid border-primary">
+      <div
+        className={`basis-[240px] shrink-0 border-e border-solid border-primary md:static h-screen w-[240px] bg-black absolute z-[40] transition-transform duration-300 ${
+          isSidebarOpen
+            ? "translate-x-0"
+            : "max-md:translate-x-full"
+        }`}
+      >
         <div className="p-5">
           <img src={logo} alt="logo" />
         </div>
@@ -55,7 +65,6 @@ const Dashboard = () => {
         </DashboardLink>
       </div>
       <div className="flex-1 p-5">
-        <ProductModal mode="add" withButton />
         <Routes>
           <Route path="products/*" element={<Products />} />
           <Route path="services/*" element={<Services />} />

@@ -15,7 +15,7 @@ const DotsGroup = ({
   go,
   setPercentage,
 }: DotsGroupProps) => {
-  const nums = [1, 2, 3, 4, 5]
+  const nums = [1, 2, 3]
   return (
     <div className="flex items-center justify-center gap-4 w-fit">
       {nums.map(num => {

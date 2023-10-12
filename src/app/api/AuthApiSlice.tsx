@@ -19,6 +19,11 @@ const authApi = apiSlice.injectEndpoints({
           "Content-type": "application/json",
         },
       }),
+      invalidatesTags: [
+        "mainServices",
+        "package",
+        "subServices",
+      ],
     }),
     register: builder.mutation<
       { user: User },

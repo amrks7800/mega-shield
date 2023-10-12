@@ -15,7 +15,14 @@ const Navbar = () => {
         </Reveal>
         <Reveal delay={1}>
           <div className="h-14 grid place-content-center">
-            <NavLink to="/insurance">الضمان</NavLink>
+            <a
+              href="/insurance.pdf"
+              target="_blank"
+              className="relative text-slate-200 transition-colors duration-500 font-bold text-lg hover:text-primary font-arabic before:content-[''] before:absolute
+      before:w-full before:h-1 before:bg-primary before:-bottom-2 before:duration-500 before:transition-transform before:scale-y-0 hover:before:scale-y-100 before:origin-top"
+            >
+              الضمان
+            </a>
           </div>
         </Reveal>
         <Reveal delay={1}>

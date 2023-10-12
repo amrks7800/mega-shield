@@ -1,75 +1,48 @@
+import React, { useState } from "react"
 import { ServicesSlider } from "."
 import ServicePackageCard from "./ServicePackageCard"
+import { useGetSubServicePackagesQuery } from "@/app/api/ServicesApiSlice"
 
-const Packages = () => {
+type PackagesProps = {
+  packages: { title: string; price: number }[]
+  setPackages: React.Dispatch<
+    React.SetStateAction<{ title: string; price: number }[]>
+  >
+}
+
+const Packages = ({
+  setPackages,
+  packages,
+}: PackagesProps) => {
+  const [subServiceID, setSubServiceID] = useState("")
+
+  const { data: subServicePackages } =
+    useGetSubServicePackagesQuery({
+      id: subServiceID,
+    })
   return (
     <div className="text-center lg:min-h-screen">
-      <h1 className="text-2xl font-semibold font-arabic text-primary w-fit mx-auto py-5">
-        الخطوة الثانية
-      </h1>
-      <span className="font-arabic text-lg">
-        اختر الخدمة و الباقة
-      </span>
+      <div className=" justify-center">
+        <ServicesSlider
+          setSubServiceID={setSubServiceID}
+          subServiceID={subServiceID}
+        />
 
-      <div className="flex lg:min-h-[80vh] justify-center py-4 px-6 lg:flex-row flex-col">
-        <ServicesSlider />
-        <div className="flex-1 overflow-y-scroll lg:h-[80vh] max-lg:h-[50vh] no-scroll">
-          <div className="grid grid-columns">
-            <ServicePackageCard
-              title="حماية الزجاج"
-              features={[
-                "ازالة البقع",
-                "تلميع الطلاء",
-                "العناية الفائقة",
-              ]}
-              price={1762}
-            />
-            <ServicePackageCard
-              title="حماية الزجاج"
-              features={[
-                "ازالة البقع",
-                "تلميع الطلاء",
-                "العناية الفائقة",
-              ]}
-              price={1762}
-            />
-            <ServicePackageCard
-              title="حماية الزجاج"
-              features={[
-                "ازالة البقع",
-                "تلميع الطلاء",
-                "العناية الفائقة",
-              ]}
-              price={1762}
-            />
-            <ServicePackageCard
-              title="حماية الزجاج"
-              features={[
-                "ازالة البقع",
-                "تلميع الطلاء",
-                "العناية الفائقة",
-              ]}
-              price={1762}
-            />
-            <ServicePackageCard
-              title="حماية الزجاج"
-              features={[
-                "ازالة البقع",
-                "تلميع الطلاء",
-                "العناية الفائقة",
-              ]}
-              price={1762}
-            />
-            <ServicePackageCard
-              title="حماية الزجاج"
-              features={[
-                "ازالة البقع",
-                "تلميع الطلاء",
-                "العناية الفائقة",
-              ]}
-              price={1762}
-            />
-          </div>
+        <div className="grid grid-columns px-2 py-8">
+          {subServicePackages &&
+            subServicePackages.count > 0 &&
+            subServicePackages.packages.map(
+              (packagely, i) => (
+                <ServicePackageCard
+                  packages={packages}
+                  setPackages={setPackages}
+                  key={i}
+                  title={packagely.name}
+                  features={packagely.description}
+                  price={packagely.price}
+                />
+              )
+            )}
         </div>
       </div>
     </div>

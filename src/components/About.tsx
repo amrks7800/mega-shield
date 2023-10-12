@@ -1,17 +1,20 @@
-import { images } from "@/constants"
 import useCarousel from "@/hooks/useCarousel"
 import { ChevronUp } from "lucide-react"
 import DotsGroup from "./DotsGroup"
 import { useEffect, useState } from "react"
 import { Reveal } from "./animators/Reveal"
 import { Button } from "./ui/button"
-import { SERVICES } from "@/constants"
 import { MoreDialog } from "."
 import { Link } from "react-router-dom"
+import { useGetAllMainServicesQuery } from "@/app/api/ServicesApiSlice"
 
 const About = () => {
   const [percentage, setPercentage] = useState(0)
   const [isOpen, setIsOpen] = useState(false)
+  const [content, setContent] = useState("")
+
+  const { data: mainServices } =
+    useGetAllMainServicesQuery("")
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -22,14 +25,16 @@ const About = () => {
       }
     }, 40)
 
+    console.log(mainServices?.mainServices)
+
     return () => {
       clearInterval(interval)
     }
-  }, [])
+  }, [mainServices])
 
   const { page, next, go } = useCarousel({
     time: 5000,
-    pages: 5,
+    pages: mainServices?.count!,
     autoPlay: true,
   })
 
@@ -48,16 +53,20 @@ const About = () => {
       >
         <ChevronUp size={40} color="#E22D48" />
       </div>
-      {images.map((item, i) => (
-        <Slide
-          img={item}
-          pageNumber={i! + 1}
-          currentPageNumber={page}
-          key={i}
-          title={Object.values(SERVICES)[i]}
-          setIsOpen={setIsOpen}
-        />
-      ))}
+      {mainServices &&
+        mainServices.mainServices.map((item, i) => (
+          <Slide
+            isOpen={isOpen}
+            setContent={setContent}
+            img={item.photo}
+            pageNumber={i! + 1}
+            currentPageNumber={page}
+            description={item.description}
+            key={i}
+            title={item.name}
+            setIsOpen={setIsOpen}
+          />
+        ))}
       <div className="absolute z-[40] bottom-5 left-1/2 -translate-x-1/2">
         <DotsGroup
           page={page}
@@ -66,7 +75,11 @@ const About = () => {
           setPercentage={setPercentage}
         />
       </div>
-      <MoreDialog isOpen={isOpen} setIsOpen={setIsOpen} />
+      <MoreDialog
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
+        content={content}
+      />
     </section>
   )
 }
@@ -79,6 +92,9 @@ type SlideProps = {
   currentPageNumber: number
   title: string
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>
+  isOpen: boolean
+  setContent: React.Dispatch<React.SetStateAction<string>>
+  description: string
 }
 
 const Slide = ({
@@ -87,10 +103,18 @@ const Slide = ({
   img,
   title,
   setIsOpen,
+  setContent,
+  description,
+  isOpen,
 }: SlideProps) => {
+  useEffect(() => {
+    if (pageNumber === currentPageNumber && !isOpen)
+      setContent(description)
+  }, [currentPageNumber, isOpen])
   return (
     <div
-      className={`absolute w-full h-full z-40 ${img} bg-cover bg-center bg-no-repeat flex items-center justify-center
+      style={{ backgroundImage: `url("${img}")` }}
+      className={`absolute w-full h-full z-40 bg-cover bg-center bg-no-repeat flex items-center justify-center
       ${
         pageNumber === currentPageNumber
           ? "bottom-0"

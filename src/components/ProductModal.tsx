@@ -36,7 +36,9 @@ const ProductModal = ({
     useState("اختر صورة")
   const [name, setName] = useState("")
   const [description, setDescription] = useState("")
-  const [image, setImage] = useState("")
+  const [image, setImage] = useState(
+    "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1583&q=80"
+  )
   const [price, setPrice] = useState("")
 
   const isOpen = useAppSelector(IsProductOpenSelector)
@@ -58,7 +60,15 @@ const ProductModal = ({
         price,
       })
         .unwrap()
-        .then(data => console.log(data))
+        .then(data => {
+          console.log(data)
+          setDescription("")
+          // setImage("")
+          setLabelContent("")
+          setName("")
+          setPrice("")
+          dispatch(toggleIsProductOpen(false))
+        })
     }
   }
 

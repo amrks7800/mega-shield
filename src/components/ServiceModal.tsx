@@ -1,0 +1,198 @@
+import {
+  IsServiceModalOpenSelector,
+  toggleServiceModal,
+} from "@/app/features/ProductSlice"
+import { useAppDispatch, useAppSelector } from "@/app/hooks"
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
+import { Input } from "./ui/input"
+import { useEffect, useState } from "react"
+import { Label } from "./ui/label"
+import { Button } from "./ui/button"
+import { useUploadImageMutation } from "@/app/api/ProductsApiSlice"
+import {
+  useAddMainServiceMutation,
+  useGetServiceByIDQuery,
+  useUpdateMainServiceMutation,
+} from "@/app/api/ServicesApiSlice"
+
+type ServiceModalProps = {
+  mode: "add" | "edit"
+  id?: string
+  withButton?: boolean
+  setId?: React.Dispatch<React.SetStateAction<string>>
+}
+
+const ServiceModal = ({
+  mode,
+  id = "",
+  setId,
+  withButton = false,
+}: ServiceModalProps) => {
+  const [labelContent, setLabelContent] =
+    useState("اختر صورة")
+  const [name, setName] = useState("")
+  const [description, setDescription] = useState("")
+  const [image, setImage] = useState(
+    "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1583&q=80"
+  )
+
+  const isOpen = useAppSelector(IsServiceModalOpenSelector)
+  const dispatch = useAppDispatch()
+
+  const { data: mainService } = useGetServiceByIDQuery({
+    id: id,
+  })
+
+  // const [isAdditional, setIsAdditional] = useState(false)
+
+  const [addMainService] = useAddMainServiceMutation()
+  const [updateMainService] = useUpdateMainServiceMutation()
+  const [uploadImage] = useUploadImageMutation()
+
+  const handleSubmit = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    e.preventDefault()
+    if (mode === "add") {
+      addMainService({
+        name,
+        description,
+        photo: image,
+      })
+        .unwrap()
+        .then(data => {
+          console.log(data)
+          dispatch(toggleServiceModal(false))
+          setDescription("")
+          // setImage("")
+          setLabelContent("")
+          setName("")
+        })
+    } else if (mode === "edit" && id) {
+      updateMainService({
+        arg: {
+          name,
+          photo: image,
+          description,
+        },
+        id,
+      })
+        .unwrap()
+        .then(data => {
+          console.log(data)
+          if (setId) setId("")
+          dispatch(toggleServiceModal(false))
+        })
+    }
+  }
+
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    if (e.target.files) {
+      const formData = new FormData()
+
+      formData.append(
+        "image",
+        e.target.files[0],
+        e.target.files[0].name
+      )
+
+      console.log(Object.entries(formData))
+
+      uploadImage(formData)
+        .unwrap()
+        .then(data => {
+          setImage(data.image)
+
+          if (e.target.files) {
+            setLabelContent(e.target.files[0]?.name)
+          }
+        })
+        .catch(err => console.log(err))
+
+      console.log(image)
+    }
+  }
+
+  useEffect(() => {
+    if (mode === "edit" && id && mainService) {
+      console.log(mainService)
+      setName(mainService.name)
+      setImage(mainService.photo)
+      setDescription(mainService.description)
+    }
+  }, [id, mainService])
+
+  return (
+    <Dialog open={isOpen}>
+      {withButton && (
+        <DialogTrigger
+          className="font-arabic text-lg px-4 py-3 border border-solid border-primary
+        rounded-lg relative overflow-hidden group"
+          onClick={() =>
+            dispatch(toggleServiceModal(!isOpen))
+          }
+        >
+          <div className="absolute w-full h-full -z-10 bg-primary inset-0 -translate-x-full group-hover:translate-x-0 transition-transform duration-300"></div>
+          {mode === "add" ? "اضف خدمة" : "تعديل"}
+        </DialogTrigger>
+      )}
+      <DialogContent className="font-arabic bg-[#333] border-none text-center text-white text-[1.5rem]">
+        <DialogHeader>
+          <DialogTitle className="w-fit mx-auto text-primary mb-4 text-2xl">
+            {mode === "add"
+              ? "اضافة خدمة جديد"
+              : "تعديل الخدمة"}
+          </DialogTitle>
+          <DialogDescription>
+            <form
+              className="flex flex-col gap-4 text-white"
+              encType="multipart/from-data"
+            >
+              <Input
+                type="text"
+                placeholder="اسم الخدمة"
+                value={name}
+                onChange={e => setName(e.target.value)}
+              />
+              <Label
+                htmlFor="image"
+                className="w-full h-9 border border-solid text-right flex items-center px-3 border-primary-gray rounded-lg
+                font-arabic"
+              >
+                {labelContent}
+              </Label>
+              <Input
+                type="file"
+                placeholder="الصورة"
+                id="image"
+                className="hidden"
+                onChange={handleInputChange}
+              />
+              <textarea
+                placeholder="الوصف"
+                className="block w-full min-h-[80px] resize-none rounded-md p-3 text-lg"
+                value={description}
+                onChange={e =>
+                  setDescription(e.target.value)
+                }
+              ></textarea>
+              <Button type="submit" onClick={handleSubmit}>
+                {mode === "add" ? "اضافة" : "تعديل"}
+              </Button>
+            </form>
+          </DialogDescription>
+        </DialogHeader>
+      </DialogContent>
+    </Dialog>
+  )
+}
+export default ServiceModal

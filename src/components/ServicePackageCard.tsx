@@ -1,20 +1,26 @@
 import { For } from "@dev-amr/react-sugartax"
-import { Check } from "lucide-react"
+import { Check, ClipboardCheck } from "lucide-react"
 import { Button } from "./ui/button"
 
 type ServicePackageCardProps = {
   title: string
   features: string[]
   price: number | string
+  packages: { title: string; price: number }[]
+  setPackages: React.Dispatch<
+    React.SetStateAction<{ title: string; price: number }[]>
+  >
 }
 
 const ServicePackageCard = ({
   title,
   features,
   price,
+  packages,
+  setPackages,
 }: ServicePackageCardProps) => {
   return (
-    <div className="overflow-hidden relative flex flex-col rounded-lg">
+    <div className="overflow-hidden relative flex flex-col rounded-lg w-[300px]">
       <div
         className="absolute h-[50px] w-52 border-y-2 border-solid border-slate-400 flex items-center justify-center
       -rotate-45 top-5 -left-12 z-[100] bg-slate-400/20 backdrop-blur-lg text-white text-md
@@ -53,8 +59,32 @@ const ServicePackageCard = ({
             )}
           </For>
         </div>
-        <Button className="block font-arabic text-xl w-full">
-          أحجز الأن
+        <Button
+          className={` font-arabic text-xl w-full flex items-center justify-center ${
+            packages.filter(p => p.title === title).length >
+            0
+              ? "bg-green-600 hover:bg-green-600"
+              : ""
+          }`}
+          onClick={() => {
+            if (
+              packages.filter(p => p.title === title)
+                .length > 0
+            ) {
+            } else {
+              setPackages(prev => [
+                ...prev,
+                { title: title, price: +price },
+              ])
+            }
+          }}
+        >
+          {packages.filter(p => p.title === title).length >
+          0 ? (
+            <ClipboardCheck className="text-primary" />
+          ) : (
+            "أحجز الأن"
+          )}
         </Button>
       </div>
       <div

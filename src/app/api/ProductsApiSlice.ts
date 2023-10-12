@@ -43,6 +43,15 @@ const productsSlice = apiSlice.injectEndpoints({
         body: arg,
       }),
     }),
+    GetProductByID: builder.query<any, { id: string }>({
+      query: arg => ({
+        url: `/products/${arg.id}`,
+        credentials: "include",
+        headers: {
+          "Content-type": "application/json",
+        },
+      }),
+    }),
   }),
 })
 

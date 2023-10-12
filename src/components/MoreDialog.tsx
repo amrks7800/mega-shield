@@ -10,9 +10,14 @@ import { Link } from "react-router-dom"
 type DialogProps = {
   isOpen: boolean
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>
+  content: string
 }
 
-const MoreDialog = ({ isOpen, setIsOpen }: DialogProps) => {
+const MoreDialog = ({
+  isOpen,
+  setIsOpen,
+  content,
+}: DialogProps) => {
   return (
     <Dialog open={isOpen}>
       <DialogContent
@@ -25,31 +30,7 @@ const MoreDialog = ({ isOpen, setIsOpen }: DialogProps) => {
             dir="rtl"
           >
             <p dir="rtl" className="leading-8">
-              <span className="text-primary text-lg">
-                التمليع الداخلي:{" "}
-              </span>
-              تلميع للمراتب سريع حيث تركز على التنظيف العميق
-              ببخار الماء والتجديد والإصلاح الداخلي للأجزاء
-              الداخلية للسيارة وتتم العملية بواسطة مواد
-              حصرية{" "}
-              <span>
-                بديتاليواوتو
-                <span className="text-primary text-lg">
-                  .
-                </span>
-              </span>
-              <br />
-              <span className="text-primary text-lg">
-                التلميع الخارجي:{" "}
-              </span>
-              ثلاث مراحل تشمل بوليش خشن وناعم ومائي ويشتمل
-              جميع أجزاء السيارة الخارجية حتى الأنوار
-              الأمامية والكشافات (ازالة الخدوش على سطح
-              الطلاء الترميل القابل للازالة - آثار الحكات
-              السطحية - آثار اللاصق - آثارالإسفلت) وبفضله
-              يتم ازالة جميع الشوائب والمواد المؤكسدة من على
-              جسم السيارة وترجع بذلك اللمعة الاصلية للسيارة
-              .
+              {content}
             </p>
           </DialogDescription>
           <div className="flex items-center gap-3 mb-5 mt-10 justify-center">

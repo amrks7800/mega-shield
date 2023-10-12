@@ -1,15 +1,26 @@
-import { ReactNode, useState } from "react"
+import { ReactNode, useEffect, useState } from "react"
 import bigCar from "/big.webp"
 import mediumCar from "/medium.webp"
 import smallCar from "/small.webp"
-import { Packages, PersonalInfo } from "@/components"
+import {
+  AdditionalServices,
+  Packages,
+  PersonalInfo,
+} from "@/components"
 
 const Services = () => {
   const [active, setActive] = useState<0 | 1 | 2>(0)
   const [className, setClassName] = useState("opacity-1")
+  const [packages, setPackages] = useState<
+    { title: string; price: number }[]
+  >([])
+
+  useEffect(() => {
+    console.log(packages)
+  }, [packages])
 
   return (
-    <section className="text-center py-20">
+    <section className="text-center py-20 bg-neutral-900">
       <div className="text-center bg-room bg-cover bg-center bg-no-repeat">
         <div className="text-center">
           <Heading content="الخطوة الاولي" />
@@ -60,8 +71,16 @@ const Services = () => {
           />
         </div>
       </div>
-      <Packages />
-      <PersonalInfo carSize={active} />
+      <Packages
+        packages={packages}
+        setPackages={setPackages}
+      />
+      <AdditionalServices />
+      <PersonalInfo
+        setPackages={setPackages}
+        packages={packages}
+        carSize={active}
+      />
     </section>
   )
 }

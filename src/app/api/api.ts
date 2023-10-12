@@ -8,5 +8,6 @@ export const apiSlice = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: "https://megashield.onrender.com",
   }),
+  tagTypes: ["mainServices", "subServices", "package"],
   endpoints: () => ({}),
 })
