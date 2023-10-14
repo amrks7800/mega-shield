@@ -20,7 +20,7 @@ const ServicePackageCard = ({
   setPackages,
 }: ServicePackageCardProps) => {
   return (
-    <div className="overflow-hidden relative flex flex-col rounded-lg w-[300px]">
+    <div className="overflow-hidden relative flex flex-col rounded-lg w-[300px] h-[420px]">
       <div
         className="absolute h-[50px] w-52 border-y-2 border-solid border-slate-400 flex items-center justify-center
       -rotate-45 top-5 -left-12 z-[100] bg-slate-400/20 backdrop-blur-lg text-white text-md
@@ -29,7 +29,7 @@ const ServicePackageCard = ({
         MEGA PRICE
       </div>
       <div className="absolute inset-0 bg-black/40 z-20 " />
-      <div className="z-40 p-5 peer">
+      <div className="z-40 p-5 peer h-full">
         <h1 className="text-right text-3xl text-primary font-arabic my-5">
           {title}
         </h1>
@@ -60,7 +60,7 @@ const ServicePackageCard = ({
           </For>
         </div>
         <Button
-          className={` font-arabic text-xl w-full flex items-center justify-center ${
+          className={` font-arabic text-xl w-full flex items-center mt-auto justify-center ${
             packages.filter(p => p.title === title).length >
             0
               ? "bg-green-600 hover:bg-green-600"
@@ -68,10 +68,9 @@ const ServicePackageCard = ({
           }`}
           onClick={() => {
             if (
-              packages.filter(p => p.title === title)
-                .length > 0
+              !packages.find(item => item.title === title)
             ) {
-            } else {
+              console.log("done")
               setPackages(prev => [
                 ...prev,
                 { title: title, price: +price },

@@ -1,60 +1,59 @@
-import { Heart, MailOpen, MapPin } from "lucide-react"
+import { MailOpen, MapPin, Phone } from "lucide-react"
 import { NavLink } from "."
 import logo from "/logo.png"
 
 const Footer = () => {
   return (
-    <footer className="flex flex-wrap sm:flex-row flex-col py-20 border-t-2 border-dashed border-primary relative">
-      <div className="flex-1 text-center px-4 basis-[25%] flex gap-4 flex-col items-center">
-        <img src={logo} alt="logo" />
-        <p
-          className="font-arabic font-semibold text-md text-slate-300 max-w-[600px]
-      text-center mx-auto my-5"
-        >
-          نحن فريق من المحترفين المتخصصين في تقديم أفضل
-          أفلام تظليل النوافذ للسيارات والشركات والمنازل في
-          المملكة. نحن نقدم حلولًا مبتكرة وجودة عالية
-          لعملائنا في قطاع الأعمال والفردية.
-        </p>
+    <footer className="pb-20 pt-5 relative bg-carbon">
+      <div className="sm:px-8 px-4 text-center flex justify-center items-center">
+        <div className="text-center px-4 flex gap-4 flex-col items-center w-[200px]">
+          <img
+            src={logo}
+            alt="logo"
+            className="max-w-full"
+          />
+        </div>
       </div>
-      <div className="flex-1 text-center px-4 basis-[25%] flex gap-4 flex-col sm:items-start items-center sm:mb-0 mb-5">
-        <NavLink to="/">الرئيسية</NavLink>
-        <NavLink to="/insurance">الضمان</NavLink>
-        <NavLink to="/who">من نحن</NavLink>
-        <NavLink to="/contact">تواصل معنا</NavLink>
-        <NavLink to="/reserve">الحجز اونلاين</NavLink>
-        <NavLink to="/shopping">التسوق</NavLink>
-      </div>
-      <div className="flex-1 text-center px-4 basis-[25%] flex gap-4 flex-col sm:items-start items-center">
-        <NavLink to="/">إفلام نانوسيراميك للنوافذ</NavLink>
-        <NavLink to="/">طلاء سيراميك للحماية</NavLink>
-        <NavLink to="/">فيلم حماية الدهان</NavLink>
-        <NavLink to="/">العزل الحراري</NavLink>
-      </div>
-      <div className="flex-1 px-4 basis-[25%] sm:border-t-0 border-t border-solid border-primary mt-4">
-        <h1 className="text-primary text-2xl text-right ltr">
-          +966593254444
-        </h1>
+      <div className="sm:px-8 px-4 border-solid border-primary flex items-center justify-center sm:gap-8 gap-3 flex-wrap max-sm:mb-10">
+        <span className="flex items-center gap-2 my-3">
+          <Phone size={30} color="red" />
+          <h1 className="text-xl text-right ltr">
+            +966593254444
+          </h1>
+        </span>
         <span className="flex items-center gap-2 my-3">
           <MapPin size={30} color="red" />
-          <p className="text-lg font-arabic font-semibold">
+          <p className="text-sm font-arabic font-semibold">
             طريق سلطانة, الراية , المدينة المنورة
           </p>
         </span>
         <span className="flex items-center gap-2">
           <MailOpen size={30} color="red" />
 
-          <p className="text-lg font-arabic font-semibold">
+          <p className="text-sm font-arabic font-semibold">
             info@megashield.com
           </p>
         </span>
       </div>
-      <div
-        className="flex absolute w-full h-[50px] sm:border-t border-solid border-primary
-      justify-center items-center text-primary gap-4 bottom-0 flex-row-reverse"
-      >
-        <span>MADE WITH</span>
-        <Heart color="#E22D48" size={30} />
+      <div className="text-center px-4 flex gap-4 justify-center border-t border-solid border-primary py-4 mt-20 items-center sm:mb-0 mb-5 absolute w-full bottom-0 flex-wrap">
+        <NavLink to="/" className="text-sm">
+          الرئيسية
+        </NavLink>
+        <NavLink to="/insurance" className="text-sm">
+          الضمان
+        </NavLink>
+        <NavLink to="/who" className="text-sm">
+          من نحن
+        </NavLink>
+        <NavLink to="/contact" className="text-sm">
+          تواصل معنا
+        </NavLink>
+        <NavLink to="/service" className="text-sm">
+          الحجز اونلاين
+        </NavLink>
+        <NavLink to="/shopping" className="text-sm">
+          التسوق
+        </NavLink>
       </div>
     </footer>
   )

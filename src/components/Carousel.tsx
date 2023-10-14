@@ -13,7 +13,7 @@ const Carousel = () => {
       >
         <div className="absolute inset-0 bg-black/20 backdrop-blur-sm" />
         <CarIcon
-          size={50}
+          size={55}
           color="#E22D48"
           className="z-10"
         />
@@ -21,7 +21,7 @@ const Carousel = () => {
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3, delay: 0.5 + 0.1 }}
-          className="text-lg mb-2 text-primary z-10 font-semibold"
+          className="text-2xl mb-2 text-primary z-10 font-semibold"
         >
           أفضل
         </motion.span>
@@ -29,7 +29,7 @@ const Carousel = () => {
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3, delay: 0.5 + 0.3 }}
-          className="z-10 text-3xl font-bold text-center mb-2"
+          className="z-10 text-5xl font-bold text-center mb-2"
         >
           محترفي خدمات <br /> السيارات في المملكة
         </motion.h1>
@@ -37,14 +37,14 @@ const Carousel = () => {
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3, delay: 0.5 + 0.5 }}
-          className="w-[50px] h-1 bg-primary z-10 my-3"
+          className="w-[100px] h-1 bg-primary z-10 my-6"
         />
 
         <motion.p
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3, delay: 0.5 + 0.7 }}
-          className="max-w-[220px] text-sm z-10 text-slate-300 text-center"
+          className="max-w-[220px] text-lg z-10 text-slate-300 text-center"
         >
           أمن شكل جديد و حماية فائقة لسيارتك مع باقة من أقوي
           الخدمات و المنتجات

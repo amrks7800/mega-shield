@@ -15,7 +15,7 @@ const Package = () => {
     <div>
       <AddPackageModal mode="add" withButton id={id} />
 
-      <div className=" overflow-x-scroll max-md:w-[90vw] mx-auto">
+      <div className=" overflow-x-scroll max-md:w-[90vw] mx-auto no-scroll">
         {packages && (
           <ContentTable
             mode="packages"

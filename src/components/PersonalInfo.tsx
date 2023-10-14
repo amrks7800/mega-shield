@@ -28,6 +28,7 @@ const PersonalInfo = ({
   const [date, setDate] = useState("")
 
   useEffect(() => {
+    setPackagesName([])
     packages.forEach(item => {
       setPackagesName(prev => [...prev, item.title])
     })
@@ -57,7 +58,10 @@ const PersonalInfo = ({
       service: packagesName,
     })
       .unwrap()
-      .then(data => console.log(data))
+      .then(data => {
+        console.log(data)
+        toast("تم اتمام حجزك بنجاح", { type: "success" })
+      })
       .catch(err => {
         console.log(err)
         toast(err.data.msg, { type: "error" })
@@ -72,7 +76,6 @@ const PersonalInfo = ({
         className="block min-w-[300px] rounded-lg shadow-2xl bg-slate-400/20 backdrop-blur-lg relative
         z-10 p-5 flex-1"
       >
-        <div className="absolute inset-1/2 bg-primary/30 blur-[1rem] shadow-blur translate-x-1/2 -translate-y-1/2 scaler w-[200px] aspect-square rounded-full -z-[1]"></div>
         <h1 className="w-fit mx-auto text-primary text-2xl mb-6 font-arabic font-semibold">
           أدخل بياناتك لاكمال الحجز
         </h1>
@@ -125,8 +128,7 @@ const PersonalInfo = ({
         </Button>
       </form>
       <div className="flex-1 grid grid-cols-2 gap-5 z-10">
-        <div className="h-52 bg-slate-400/20 backdrop-blur-lg rounded-lg z-10 flex flex-col items-center min-w-[150px] p-5">
-          <div className="absolute inset-1/2 bg-primary/30 blur-[1rem] shadow-blur translate-x-1/2 -translate-y-1/2 scaler w-[100px] aspect-square rounded-full -z-[1]"></div>
+        <div className="h-52 shadow-box bg-slate-400/20 backdrop-blur-lg rounded-lg z-10 flex flex-col items-center min-w-[150px] p-5">
           <h1 className="w-fit mx-auto text-xl text-primary font-arabic">
             حجم السيارة
           </h1>
@@ -141,25 +143,23 @@ const PersonalInfo = ({
               : "كبير"}
           </span>
         </div>
-        <div className="h-52 bg-slate-400/20 backdrop-blur-lg rounded-lg z-10 flex flex-col items-center min-w-[150px] p-5">
-          <div className="absolute inset-1/2 bg-primary/30 blur-[1rem] shadow-blur translate-x-1/2 -translate-y-1/2 scaler w-[100px] aspect-square rounded-full -z-[1]"></div>
+        <div className="h-52 shadow-box bg-slate-400/20 backdrop-blur-lg rounded-lg z-10 flex flex-col items-center min-w-[150px] p-5">
           <h1 className="w-fit mx-auto text-xl text-primary font-arabic">
             الخدمات
           </h1>
           <p className="flex items-center justify-center flex-wrap gap-4">
-            {packages.length > 0 &&
-              packages.map(item => (
+            {packagesName.length > 0 &&
+              packagesName.map(item => (
                 <span
-                  key={item.title}
+                  key={item}
                   className="border border-solid border-primary flex-1 min-w-[100px]"
                 >
-                  {item.title}
+                  {item}
                 </span>
               ))}
           </p>
         </div>
-        <div className="h-52 bg-slate-400/20 backdrop-blur-lg rounded-lg z-10 flex flex-col items-center min-w-[150px] p-5">
-          <div className="absolute inset-1/2 bg-primary/30 blur-[1rem] shadow-blur translate-x-1/2 -translate-y-1/2 scaler w-[100px] aspect-square rounded-full -z-[1]"></div>
+        <div className="h-52 shadow-box bg-slate-400/20 backdrop-blur-lg rounded-lg z-10 flex flex-col items-center min-w-[150px] p-5">
           <h1 className="w-fit mx-auto text-xl text-primary font-arabic">
             السعر الاجمالي
           </h1>
@@ -167,8 +167,7 @@ const PersonalInfo = ({
             {packages.reduce((a, b) => a + +b.price, 0)}$
           </span>
         </div>
-        <div className="h-52 bg-slate-400/20 backdrop-blur-lg rounded-lg z-10 flex flex-col items-center min-w-[150px] p-5">
-          <div className="absolute inset-1/2 bg-primary/30 blur-[1rem] shadow-blur translate-x-1/2 -translate-y-1/2 scaler w-[100px] aspect-square rounded-full -z-[1]"></div>
+        <div className="h-52 shadow-box bg-slate-400/20 backdrop-blur-lg rounded-lg z-10 flex flex-col items-center min-w-[150px] p-5">
           <h1 className="w-fit mx-auto text-xl text-primary font-arabic">
             تاريخ و توقيت الحجز
           </h1>

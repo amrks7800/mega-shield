@@ -21,29 +21,27 @@ const Packages = ({
       id: subServiceID,
     })
   return (
-    <div className="text-center lg:min-h-screen">
-      <div className=" justify-center">
-        <ServicesSlider
-          setSubServiceID={setSubServiceID}
-          subServiceID={subServiceID}
-        />
+    <div className="text-center">
+      <ServicesSlider
+        setSubServiceID={setSubServiceID}
+        subServiceID={subServiceID}
+      />
 
-        <div className="grid grid-columns px-2 py-8">
-          {subServicePackages &&
-            subServicePackages.count > 0 &&
-            subServicePackages.packages.map(
-              (packagely, i) => (
-                <ServicePackageCard
-                  packages={packages}
-                  setPackages={setPackages}
-                  key={i}
-                  title={packagely.name}
-                  features={packagely.description}
-                  price={packagely.price}
-                />
-              )
-            )}
-        </div>
+      <div className="grid grid-columns px-2 py-8">
+        {subServicePackages &&
+          subServicePackages.count > 0 &&
+          subServicePackages.packages.map(
+            (packagely, i) => (
+              <ServicePackageCard
+                packages={packages}
+                setPackages={setPackages}
+                key={i}
+                title={packagely.name}
+                features={packagely.description}
+                price={packagely.price}
+              />
+            )
+          )}
       </div>
     </div>
   )

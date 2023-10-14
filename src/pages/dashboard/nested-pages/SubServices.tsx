@@ -14,7 +14,7 @@ const SubServices = () => {
   return (
     <div>
       <AddSubServiceModal id={id} withButton mode="add" />
-      <div className=" overflow-x-scroll max-md:w-[90vw] mx-auto">
+      <div className=" overflow-x-scroll max-md:w-[90vw] mx-auto no-scroll">
         {subServices && (
           <ContentTable
             mode="services"

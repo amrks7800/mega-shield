@@ -64,11 +64,19 @@ const Dashboard = () => {
           المنتجات
         </DashboardLink>
       </div>
-      <div className="flex-1 p-5">
-        <Routes>
-          <Route path="products/*" element={<Products />} />
-          <Route path="services/*" element={<Services />} />
-        </Routes>
+      <div className="flex-1 p-5 h-screen overflow-y-scroll">
+        <div className="">
+          <Routes>
+            <Route
+              path="products/*"
+              element={<Products />}
+            />
+            <Route
+              path="services/*"
+              element={<Services />}
+            />
+          </Routes>
+        </div>
       </div>
     </div>
   )

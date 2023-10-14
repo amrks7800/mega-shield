@@ -1,9 +1,8 @@
-import { ReactNode, useEffect, useState } from "react"
+import { ReactNode, useState } from "react"
 import bigCar from "/big.webp"
 import mediumCar from "/medium.webp"
 import smallCar from "/small.webp"
 import { Packages, PersonalInfo } from "@/components"
-import { Link } from "react-router-dom"
 
 const Services = () => {
   const [active, setActive] = useState<0 | 1 | 2>(0)
@@ -12,16 +11,13 @@ const Services = () => {
     { title: string; price: number }[]
   >([])
 
-  useEffect(() => {
-    console.log(packages)
-  }, [packages])
-
   return (
     <section className="text-center py-20 bg-neutral-900">
-      <div className="text-center bg-room bg-cover bg-center bg-no-repeat">
-        <div className="text-center">
+      <div className="text-center bg-room bg-cover bg-center bg-no-repeat relative">
+        <div className="absolute inset-0 bg-black/20 z-[-1]" />
+        <div className="text-center flex flex-col z-40">
           <Heading content="الخطوة الاولي" />
-          <span className="font-arabic text-lg">
+          <span className="font-arabic text-xl">
             اختر حجم سيارتك
           </span>
           <div className="flex items-center gap-3 text-center justify-center my-5 mx-5">
@@ -72,7 +68,7 @@ const Services = () => {
         packages={packages}
         setPackages={setPackages}
       />
-      <Link to="/dash/services">dash</Link>
+      {/* <Link to="/dash/services">dash</Link> */}
       {/* <AdditionalServices /> */}
       <PersonalInfo
         setPackages={setPackages}
@@ -115,7 +111,7 @@ const SelectCard = ({
       className={`font-arabic text-white text-lg border-solid border-[2px] ${
         active ? " border-green-600" : "border-transparent"
       } hover:text-primary px-5 py-3 rounded-md transition-colors duration-200
-      bg-[#333]/70 backdrop-blur-sm`}
+      `}
       onClick={() => {
         setClassName("opacity-0 translate-y-[15px]")
         setTimeout(() => {
@@ -124,7 +120,7 @@ const SelectCard = ({
         }, 600)
       }}
     >
-      <h1 className="w-fit mx-auto text-xl text-primary">
+      <h1 className="w-fit mx-auto text-2xl text-primary">
         {children}
       </h1>
       <img

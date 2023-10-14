@@ -22,15 +22,15 @@ module.exports = {
       "img5-s": "url('/glass.jpg')",
       "img6-s": "url('/car6-s.jpeg')",
       main: "url('/landing.jpg')",
-      carCabin: "url('/main-car.jpg')",
+      carCabin: "url('/landing.jpg')",
       wheel: "url('/reserve.png')",
       shopping: "url('/shopping.png')",
       welcome: "url('/welcome.jpg')",
       carbon: "url('/carpon.webp')",
-      planet: "url('/planet.png')",
+      astro: "url('/astro.jpg')",
       "opaque-gradient":
         "linear-gradient(to left, rgba(0,67,116,0.6) -26.48%, rgba(0,51,102,0.6) 73.52%)",
-      room: "url('/garage.jpg')",
+      room: "url('/3882.jpg')",
       package: "url('/package-bg.jpg')",
       "blue-red":
         "linear-gradient(to right, #f43b48 0%, #453a94 100%)",
@@ -48,6 +48,7 @@ module.exports = {
     extend: {
       boxShadow: {
         blur: "#424584 0px 7px 29px 0px",
+        box: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;",
       },
       colors: {
         border: "hsl(var(--border))",

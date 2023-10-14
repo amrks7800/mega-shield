@@ -1,9 +1,10 @@
 import { SearchCheck } from "lucide-react"
 import mobileCar from "/reservation-mobile.png"
 import { motion } from "framer-motion"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 const Adds = () => {
+  const navigate = useNavigate()
   return (
     <section
       id="adds"
@@ -84,6 +85,7 @@ const Adds = () => {
             className="flex items-center justify-center z-50 text-3xl font-bold font-arabic h-20 w-[220px] bg-black mx-auto my-5
           border-4 border-solid border-transparent
           transition-colors hover:bg-transparent hover:border-black"
+            onClick={() => navigate("/service")}
           >
             إحجز الان
           </button>

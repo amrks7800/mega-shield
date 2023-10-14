@@ -48,7 +48,7 @@ const Bookings = () => {
           </label>
         </div>
       </form>
-      <div className=" overflow-x-scroll max-md:w-[90vw] mx-auto">
+      <div className=" overflow-x-scroll max-md:w-[90vw] mx-auto no-scroll">
         {items && pendingItems && (
           <ContentTable
             items={
@@ -59,6 +59,7 @@ const Bookings = () => {
             mode="booking"
             headers={[
               "اسم العميل",
+              "رقم الهاتف",
               "التاريخ",
               "حجم السيارة",
               "الباقات و الاضافات",

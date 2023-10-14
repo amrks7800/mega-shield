@@ -98,7 +98,11 @@ const ContentTable = ({
             ? items.map((item, i) => (
                 <TableRow key={i}>
                   <TableCell>{item.name}</TableCell>
-                  <TableCell>{item.description}</TableCell>
+                  <TableCell>
+                    <div className="w-[150px] h-[100px] overflow-y-scroll">
+                      <p>{item.description}</p>
+                    </div>
+                  </TableCell>
                   <TableCell>
                     <img
                       src={item.photo}
@@ -108,39 +112,43 @@ const ContentTable = ({
                   </TableCell>
                   <TableCell>{item.__v}</TableCell>
                   <TableCell>
-                    <Button
-                      className="font-arabic me-3"
-                      onClick={() => {
-                        deleteMainService({ id: item._id })
-                          .unwrap()
-                          .then(() =>
-                            console.log("deleted")
+                    <div className="flex items-center justify-center gap-4">
+                      <Button
+                        className="font-arabic me-3"
+                        onClick={() => {
+                          deleteMainService({
+                            id: item._id,
+                          })
+                            .unwrap()
+                            .then(() =>
+                              console.log("deleted")
+                            )
+                        }}
+                      >
+                        حذف الخدمة
+                      </Button>
+                      <Button
+                        className="font-arabic me-3"
+                        onClick={() => {
+                          setId(item._id)
+                          dispatch(
+                            toggleEditServiceModal(true)
                           )
-                      }}
-                    >
-                      حذف الخدمة
-                    </Button>
-                    <Button
-                      className="font-arabic me-3"
-                      onClick={() => {
-                        setId(item._id)
-                        dispatch(
-                          toggleEditServiceModal(true)
-                        )
-                      }}
-                    >
-                      تعديل
-                    </Button>
-                    <Button
-                      className="font-arabic"
-                      onClick={() => {
-                        navigate(
-                          `/dash/services/subservices/${item._id}`
-                        )
-                      }}
-                    >
-                      الخدمات الفرعية
-                    </Button>
+                        }}
+                      >
+                        تعديل
+                      </Button>
+                      <Button
+                        className="font-arabic"
+                        onClick={() => {
+                          navigate(
+                            `/dash/services/subservices/${item._id}`
+                          )
+                        }}
+                      >
+                        الخدمات الفرعية
+                      </Button>
+                    </div>
                   </TableCell>
                 </TableRow>
               ))
@@ -151,6 +159,9 @@ const ContentTable = ({
                     {item.customerFname +
                       " " +
                       item.customerLname}
+                  </TableCell>
+                  <TableCell>
+                    {item.customerPhone}
                   </TableCell>
                   <TableCell>
                     {new Date(
@@ -187,7 +198,11 @@ const ContentTable = ({
             ? items.map((item, i) => (
                 <TableRow key={i}>
                   <TableCell>{item.name}</TableCell>
-                  <TableCell>{item.description}</TableCell>
+                  <TableCell>
+                    <div className="w-[150px] h-[100px] overflow-y-scroll">
+                      <p>{item.description}</p>
+                    </div>
+                  </TableCell>
                   <TableCell>
                     <img
                       src={item.photo}

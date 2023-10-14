@@ -27,7 +27,7 @@ const Services = () => {
           element={
             <>
               <ServiceModal mode="add" withButton />
-              <div className=" overflow-x-scroll max-md:w-[90vw] mx-auto">
+              <div className="overflow-x-scroll max-md:w-[90vw] mx-auto no-scroll">
                 {mainServices && (
                   <ContentTable
                     mode="main-services"
