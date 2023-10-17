@@ -13,7 +13,11 @@ import Products from "./nested-pages/Products"
 import Services from "./nested-pages/Services"
 import logo from "/logo.png"
 import { BeatLoader } from "react-spinners"
-import { IsSidebarOpenSelector } from "@/app/features/ProductSlice"
+import {
+  IsSidebarOpenSelector,
+  toggleSidebar,
+} from "@/app/features/ProductSlice"
+import { Menu, X } from "lucide-react"
 
 const Dashboard = () => {
   const { data, error, isLoading } = useGetMeQuery("")
@@ -48,23 +52,34 @@ const Dashboard = () => {
             : "max-md:translate-x-full"
         }`}
       >
-        <div className="p-5">
-          <img src={logo} alt="logo" />
+        <div className="relative">
+          <X
+            className="absolute top-2 left-2 cursor-pointer text-primary sm:hidden block"
+            onClick={() => dispatch(toggleSidebar(false))}
+          />
+          <div className="p-5">
+            <img src={logo} alt="logo" />
+          </div>
+          <DashboardLink
+            to={"/dash/services"}
+            activeKey={"services"}
+          >
+            الخدمات
+          </DashboardLink>
+          <DashboardLink
+            to={"/dash/products"}
+            activeKey={"products"}
+          >
+            المنتجات
+          </DashboardLink>
         </div>
-        <DashboardLink
-          to={"/dash/services"}
-          activeKey={"services"}
-        >
-          الخدمات
-        </DashboardLink>
-        <DashboardLink
-          to={"/dash/products"}
-          activeKey={"products"}
-        >
-          المنتجات
-        </DashboardLink>
       </div>
       <div className="flex-1 p-5 h-screen overflow-y-scroll">
+        <Menu
+          className="text-primary sm:hidden block cursor-pointer"
+          onClick={() => dispatch(toggleSidebar(true))}
+          size={25}
+        />
         <div className="">
           <Routes>
             <Route

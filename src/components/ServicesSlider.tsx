@@ -1,6 +1,6 @@
 import useCarousel from "@/hooks/useCarousel"
 import { For } from "@dev-amr/react-sugartax"
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 import {
   useGetAllMainServicesQuery,
   useGetSubServicesQuery,
@@ -18,6 +18,8 @@ const ServicesSlider = ({
   setSubServiceID,
   subServiceID,
 }: ServicesProps) => {
+  const [filteredMainServices, setFilteredMainServices] =
+    useState<MainService[]>([])
   const { data: mainServices } =
     useGetAllMainServicesQuery("")
 
@@ -27,7 +29,15 @@ const ServicesSlider = ({
     autoPlay: false,
   })
 
-  console.log(page)
+  useEffect(() => {
+    if (mainServices) {
+      const filtered = mainServices.mainServices.filter(
+        item => !item.isAdditional
+      )
+
+      setFilteredMainServices(filtered)
+    }
+  }, [mainServices])
 
   return (
     <div className="relative">
@@ -39,7 +49,7 @@ const ServicesSlider = ({
           }}
         >
           {mainServices && (
-            <For each={mainServices?.mainServices}>
+            <For each={filteredMainServices}>
               {(item, i) => (
                 <Slide
                   setSubServiceID={setSubServiceID}
@@ -145,20 +155,8 @@ const Slide = ({
     id: service._id,
   })
 
-  // useEffect(() => {
-  //   if (
-  //     active === idx &&
-  //     ref.current &&
-  //     window.scrollY !== 0
-  //   ) {
-  //     ref.current.scrollIntoView({
-  //       behavior: "smooth",
-  //     })
-  //   }
-  // }, [active, idx, ref.current])
-
   useEffect(() => {
-    if (subServices) {
+    if (subServices && subServices.services.length) {
       setSubServiceID(subServices?.services[0]._id)
     }
   }, [subServices])

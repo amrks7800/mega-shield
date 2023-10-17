@@ -68,6 +68,7 @@ export type MainService = {
   description: string
   photo: string
   __v: number
+  isAdditional: boolean
 }
 
 export type Service = {
