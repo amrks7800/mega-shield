@@ -25,7 +25,7 @@ const ServicesSlider = ({
 
   const { next, page, prev } = useCarousel({
     time: 3000,
-    pages: mainServices?.count!,
+    pages: filteredMainServices.length,
     autoPlay: false,
   })
 
