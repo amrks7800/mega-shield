@@ -42,6 +42,7 @@ const ServiceModal = ({
   const [image, setImage] = useState(
     "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1583&q=80"
   )
+  const [isAdditional, setIsAdditional] = useState(false)
 
   const isOpen = useAppSelector(IsServiceModalOpenSelector)
   const dispatch = useAppDispatch()
@@ -65,6 +66,7 @@ const ServiceModal = ({
         name,
         description,
         photo: image,
+        isAdditional,
       })
         .unwrap()
         .then(data => {
@@ -74,6 +76,7 @@ const ServiceModal = ({
           // setImage("")
           setLabelContent("")
           setName("")
+          setIsAdditional(false)
         })
     } else if (mode === "edit" && id) {
       updateMainService({
@@ -81,6 +84,7 @@ const ServiceModal = ({
           name,
           photo: image,
           description,
+          isAdditional,
         },
         id,
       })
@@ -128,6 +132,7 @@ const ServiceModal = ({
       setName(mainService.name)
       setImage(mainService.photo)
       setDescription(mainService.description)
+      setIsAdditional(mainService.isAdditional)
     }
   }, [id, mainService])
 
@@ -185,6 +190,23 @@ const ServiceModal = ({
                   setDescription(e.target.value)
                 }
               ></textarea>
+              <div className="flex items-center gap-3">
+                <input
+                  type="checkbox"
+                  className="cursor-pointer w-4 h-4 accent-primary"
+                  checked={isAdditional}
+                  onChange={e =>
+                    setIsAdditional(e.target.checked)
+                  }
+                />
+                <Label
+                  htmlFor="image"
+                  className=" 
+                font-arabic"
+                >
+                  خدمة اضافية
+                </Label>
+              </div>
               <Button type="submit" onClick={handleSubmit}>
                 {mode === "add" ? "اضافة" : "تعديل"}
               </Button>

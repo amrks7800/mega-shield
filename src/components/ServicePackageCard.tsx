@@ -75,6 +75,12 @@ const ServicePackageCard = ({
                 ...prev,
                 { title: title, price: +price },
               ])
+            } else {
+              const filteredPackages = packages.filter(
+                item => item.title !== title
+              )
+
+              setPackages(filteredPackages)
             }
           }}
         >

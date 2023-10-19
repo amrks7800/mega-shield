@@ -2,7 +2,11 @@ import { ReactNode, useState } from "react"
 import bigCar from "/big.webp"
 import mediumCar from "/medium.webp"
 import smallCar from "/small.webp"
-import { Packages, PersonalInfo } from "@/components"
+import {
+  AdditionalServices,
+  Packages,
+  PersonalInfo,
+} from "@/components"
 
 const Services = () => {
   const [active, setActive] = useState<0 | 1 | 2>(0)
@@ -69,7 +73,10 @@ const Services = () => {
         setPackages={setPackages}
       />
       {/* <Link to="/dash/services">dash</Link> */}
-      {/* <AdditionalServices /> */}
+      <AdditionalServices
+        packages={packages}
+        setPackages={setPackages}
+      />
       <PersonalInfo
         setPackages={setPackages}
         packages={packages}

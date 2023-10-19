@@ -107,10 +107,15 @@ const ContentTable = ({
                     <img
                       src={item.photo}
                       alt="service-photo"
-                      className="w-[250px] m-3"
+                      className="w-[250px] sm:m-3"
                     />
                   </TableCell>
                   <TableCell>{item.__v}</TableCell>
+                  <TableCell>
+                    {item.isAdditional
+                      ? "خدمة اضافية"
+                      : "خدمة اساسية"}
+                  </TableCell>
                   <TableCell>
                     <div className="flex items-center justify-center gap-4">
                       <Button

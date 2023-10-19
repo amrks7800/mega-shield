@@ -60,6 +60,7 @@ export type MainServiceProps = {
   name: string
   photo: string
   description: string
+  isAdditional: boolean
 }
 
 export type MainService = {
