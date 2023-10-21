@@ -9,8 +9,6 @@ const SubServices = () => {
   const { data: subServices } = useGetSubServicesQuery({
     id: id!,
   })
-
-  console.log(id, subServices)
   return (
     <div>
       <AddSubServiceModal id={id} withButton mode="add" />

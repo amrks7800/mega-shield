@@ -58,8 +58,7 @@ const PersonalInfo = ({
       service: packagesName,
     })
       .unwrap()
-      .then(data => {
-        console.log(data)
+      .then(() => {
         toast("تم اتمام حجزك بنجاح", { type: "success" })
       })
       .catch(err => {
@@ -144,23 +143,18 @@ const PersonalInfo = ({
           </span>
         </div>
         <div className="h-52 shadow-box bg-slate-400/20 backdrop-blur-lg rounded-lg z-10 flex flex-col items-center min-w-[150px] p-5">
-          <h1 className="w-fit mx-auto text-xl text-primary font-arabic">
+          <h1
+            className="w-fit mx-auto text-xl font-bold
+          text-primary font-arabic"
+          >
             الخدمات
           </h1>
-          <p className="flex items-center justify-center flex-wrap gap-4">
-            {packagesName.length > 0 &&
-              packagesName.map(item => (
-                <span
-                  key={item}
-                  className="border border-solid border-primary flex-1 min-w-[100px]"
-                >
-                  {item}
-                </span>
-              ))}
+          <p className="flex items-center justify-center font-arabic flex-wrap gap-4 text-lg">
+            {packagesName.join(" + ")}
           </p>
         </div>
         <div className="h-52 shadow-box bg-slate-400/20 backdrop-blur-lg rounded-lg z-10 flex flex-col items-center min-w-[150px] p-5">
-          <h1 className="w-fit mx-auto text-xl text-primary font-arabic">
+          <h1 className="w-fit mx-auto text-xl font-bold text-primary font-arabic">
             السعر الاجمالي
           </h1>
           <span className="text-primary font-arabic text-2xl my-auto">
@@ -168,7 +162,7 @@ const PersonalInfo = ({
           </span>
         </div>
         <div className="h-52 shadow-box bg-slate-400/20 backdrop-blur-lg rounded-lg z-10 flex flex-col items-center min-w-[150px] p-5">
-          <h1 className="w-fit mx-auto text-xl text-primary font-arabic">
+          <h1 className="w-fit mx-auto text-xl font-bold text-primary font-arabic">
             تاريخ و توقيت الحجز
           </h1>
           <p className="flex items-center justify-center gap-3">

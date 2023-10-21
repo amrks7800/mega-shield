@@ -65,11 +65,10 @@ const ServiceModal = ({
         isAdditional,
       })
         .unwrap()
-        .then(data => {
-          console.log(data)
+        .then(() => {
           dispatch(toggleServiceModal(false))
           setDescription("")
-          // setImage("")
+          setImage("")
           setLabelContent("")
           setName("")
           setIsAdditional(false)
@@ -85,8 +84,7 @@ const ServiceModal = ({
         id,
       })
         .unwrap()
-        .then(data => {
-          console.log(data)
+        .then(() => {
           if (setId) setId("")
           dispatch(toggleServiceModal(false))
         })
@@ -105,8 +103,6 @@ const ServiceModal = ({
         e.target.files[0].name
       )
 
-      console.log(Object.entries(formData))
-
       uploadImage(formData)
         .unwrap()
         .then(data => {
@@ -117,15 +113,11 @@ const ServiceModal = ({
           }
         })
         .catch(err => console.log(err))
-
-      console.log(image)
     }
   }
 
   useEffect(() => {
     if (mode === "edit" && id && mainService) {
-      console.log(mainService)
-      setName(mainService.name)
       setImage(mainService.photo)
       setDescription(mainService.description)
       setIsAdditional(mainService.isAdditional)
@@ -168,6 +160,7 @@ const ServiceModal = ({
                 htmlFor="image"
                 className="w-full h-9 border border-solid text-right flex items-center px-3 border-primary-gray rounded-lg
                 font-arabic"
+                tabIndex={0}
               >
                 {labelContent}
               </Label>

@@ -54,8 +54,7 @@ const AddSubServiceModal = ({
       },
     })
       .unwrap()
-      .then(data => {
-        console.log(data)
+      .then(() => {
         dispatch(toggleServiceModal(false))
         setDescription("")
         setImage("")
@@ -76,8 +75,6 @@ const AddSubServiceModal = ({
         e.target.files[0].name
       )
 
-      console.log(Object.entries(formData))
-
       uploadImage(formData)
         .unwrap()
         .then(data => {
@@ -88,8 +85,6 @@ const AddSubServiceModal = ({
           }
         })
         .catch(err => console.log(err))
-
-      console.log(image)
     }
   }
 

@@ -5,7 +5,6 @@ import {
 import { MainService } from "@/types"
 import AdditionalServicePackageCard from "./AdditionalServicePackageCard"
 import { For } from "@dev-amr/react-sugartax"
-import { useEffect } from "react"
 
 const AdditionalServiceCard = ({
   mainService,
@@ -22,17 +21,10 @@ const AdditionalServiceCard = ({
     id: mainService._id,
   })
 
-  console.log(mainService)
-
   const { data: servicePackages } =
     useGetSubServicePackagesQuery({
       id: subservices?.services[0]._id!,
     })
-
-  useEffect(() => {
-    console.log(packages)
-    console.log(subservices)
-  }, [packages, subservices])
 
   return (
     <div

@@ -53,7 +53,6 @@ const AddPackageModal = ({
     })
       .unwrap()
       .then(data => {
-        console.log(data)
         dispatch(toggleServiceModal(false))
         setFeatures(["", "", ""])
         setName("")

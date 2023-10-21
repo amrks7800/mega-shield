@@ -99,7 +99,7 @@ const ContentTable = ({
                 <TableRow key={i}>
                   <TableCell>{item.name}</TableCell>
                   <TableCell>
-                    <div className="w-[150px] h-[100px] overflow-y-scroll">
+                    <div className="w-[150px] h-[100px] overflow-y-scroll no-scroll">
                       <p>{item.description}</p>
                     </div>
                   </TableCell>
@@ -124,10 +124,6 @@ const ContentTable = ({
                           deleteMainService({
                             id: item._id,
                           })
-                            .unwrap()
-                            .then(() =>
-                              console.log("deleted")
-                            )
                         }}
                       >
                         حذف الخدمة

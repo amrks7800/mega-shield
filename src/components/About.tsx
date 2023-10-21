@@ -23,8 +23,6 @@ const About = () => {
       }
     }, 40)
 
-    console.log(mainServices?.mainServices)
-
     return () => {
       clearInterval(interval)
     }

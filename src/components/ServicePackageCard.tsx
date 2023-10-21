@@ -70,7 +70,6 @@ const ServicePackageCard = ({
             if (
               !packages.find(item => item.title === title)
             ) {
-              console.log("done")
               setPackages(prev => [
                 ...prev,
                 { title: title, price: +price },

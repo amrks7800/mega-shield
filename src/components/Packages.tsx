@@ -27,7 +27,7 @@ const Packages = ({
         subServiceID={subServiceID}
       />
 
-      <div className="grid grid-columns px-2 py-8">
+      <div className="grid grid-columns px-2 py-8 max-w-[1100px] mx-auto place-items-center">
         {subServicePackages &&
           subServicePackages.count > 0 &&
           subServicePackages.packages.map(

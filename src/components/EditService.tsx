@@ -64,8 +64,7 @@ const EditServiceModal = ({
         id,
       })
         .unwrap()
-        .then(data => {
-          console.log(data)
+        .then(() => {
           dispatch(toggleEditServiceModal(false))
         })
     }
@@ -83,8 +82,6 @@ const EditServiceModal = ({
         e.target.files[0].name
       )
 
-      console.log(Object.entries(formData))
-
       uploadImage(formData)
         .unwrap()
         .then(data => {
@@ -95,14 +92,11 @@ const EditServiceModal = ({
           }
         })
         .catch(err => console.log(err))
-
-      console.log(image)
     }
   }
 
   useEffect(() => {
     if (id && mainService) {
-      console.log(mainService)
       setName(mainService.name)
       setImage(mainService.photo)
       setDescription(mainService.description)

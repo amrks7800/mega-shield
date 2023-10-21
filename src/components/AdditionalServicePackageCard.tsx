@@ -43,7 +43,6 @@ const AdditionalServicePackageCard = ({
                 item => item.title === servicePackage.name
               )
             ) {
-              console.log("done")
               setPackages(prev => [
                 ...prev,
                 {

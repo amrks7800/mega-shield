@@ -58,10 +58,9 @@ const ProductModal = ({
         price,
       })
         .unwrap()
-        .then(data => {
-          console.log(data)
+        .then(() => {
           setDescription("")
-          // setImage("")
+          setImage("")
           setLabelContent("")
           setName("")
           setPrice("")
@@ -82,8 +81,6 @@ const ProductModal = ({
         e.target.files[0].name
       )
 
-      console.log(Object.entries(formData))
-
       uploadImage(formData)
         .unwrap()
         .then(data => {
@@ -94,8 +91,6 @@ const ProductModal = ({
           }
         })
         .catch(err => console.log(err))
-
-      console.log(image)
     }
   }
 

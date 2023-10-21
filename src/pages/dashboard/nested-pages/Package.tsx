@@ -9,8 +9,6 @@ const Package = () => {
   const { data: packages } = useGetSubServicePackagesQuery({
     id: id!,
   })
-
-  console.log(id, packages)
   return (
     <div>
       <AddPackageModal mode="add" withButton id={id} />

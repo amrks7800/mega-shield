@@ -16,9 +16,6 @@ const Bookings = () => {
 
   if (isLoading) return "loading..."
 
-  console.log(items)
-  console.log(pendingItems)
-
   return (
     <div>
       <form className="my-5">
