@@ -267,7 +267,9 @@ const ContentTable = ({
                       )}
                     </div>
                   </TableCell>
-                  <TableCell>{item.price}$</TableCell>
+                  <TableCell>{item.smallPrice}$</TableCell>
+                  <TableCell>{item.mediumPrice}$</TableCell>
+                  <TableCell>{item.bigPrice}$</TableCell>
                   <TableCell>{item.__v}</TableCell>
                   <TableCell className="">
                     <div className="flex items-center gap-4 flex-wrap text-primary justify-center">
