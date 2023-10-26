@@ -1,6 +1,13 @@
 import { For } from "@dev-amr/react-sugartax"
 import { Check, ClipboardCheck } from "lucide-react"
 import { Button } from "./ui/button"
+import { useMemo } from "react"
+
+const packImagesURLS = [
+  "/pack-1.jpg",
+  "/pack-2.jpg",
+  "/pack-3.jpg",
+]
 
 type ServicePackageCardProps = {
   title: string
@@ -19,6 +26,10 @@ const ServicePackageCard = ({
   packages,
   setPackages,
 }: ServicePackageCardProps) => {
+  const random = useMemo(
+    () => Math.floor(Math.random() * 3),
+    []
+  )
   return (
     <div className="overflow-hidden relative flex flex-col rounded-lg w-[300px] h-[420px]">
       <div
@@ -30,7 +41,7 @@ const ServicePackageCard = ({
       </div>
       <div className="absolute inset-0 bg-black/40 z-20 " />
       <div className="z-40 p-5 peer h-full">
-        <h1 className="text-right text-3xl text-primary font-arabic my-5">
+        <h1 className="text-right text-3xl text-primary font-bold font-arabic my-5">
           {title}
         </h1>
         <div className="flex my-5 w-fit gap-1 text-primary">
@@ -51,8 +62,12 @@ const ServicePackageCard = ({
                 className="flex items-center gap-2"
                 key={i}
               >
-                <Check size={25} color="#16FF00" />
-                <span className="text-[#16FF00] font-arabic font-bold text-base">
+                <Check
+                  size={25}
+                  color="#75c56e"
+                  className="font-bold"
+                />
+                <span className="text-white font-arabic text-base">
                   {item}
                 </span>
               </div>
@@ -65,7 +80,7 @@ const ServicePackageCard = ({
             0
               ? "bg-green-600 hover:bg-green-600"
               : ""
-          }`}
+          } bg-transparent border-2 border-solid border-primary`}
           onClick={() => {
             if (
               !packages.find(item => item.title === title)
@@ -92,8 +107,11 @@ const ServicePackageCard = ({
         </Button>
       </div>
       <div
-        className="p-5 bg-package bg-cover bg-no-repeat
+        className="p-5 bg-cover bg-no-repeat
               rounded-lg overflow-hidden absolute inset-0 z-10 transition-transform duration-500 peer-hover:scale-110"
+        style={{
+          backgroundImage: `url(${packImagesURLS[random]})`,
+        }}
       ></div>
     </div>
   )

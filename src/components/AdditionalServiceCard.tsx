@@ -10,12 +10,14 @@ const AdditionalServiceCard = ({
   mainService,
   packages,
   setPackages,
+  carSize,
 }: {
   mainService: MainService
   packages: { title: string; price: number }[]
   setPackages: React.Dispatch<
     React.SetStateAction<{ title: string; price: number }[]>
   >
+  carSize: 0 | 1 | 2
 }) => {
   const { data: subservices } = useGetSubServicesQuery({
     id: mainService._id,
@@ -43,6 +45,13 @@ const AdditionalServiceCard = ({
             <For each={servicePackages?.packages}>
               {(item, i) => (
                 <AdditionalServicePackageCard
+                  price={
+                    carSize === 0
+                      ? item.smallPrice
+                      : carSize === 1
+                      ? item.mediumPrice
+                      : item.bigPrice
+                  }
                   servicePackage={item}
                   key={i}
                   packages={packages}

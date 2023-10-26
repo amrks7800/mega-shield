@@ -108,7 +108,9 @@ export type AddPackageProps = {
   name: string
   belongTo: string
   description: string[]
-  price: number
+  smallPrice: number
+  bigPrice: number
+  mediumPrice: number
 }
 
 export interface Package extends AddPackageProps {

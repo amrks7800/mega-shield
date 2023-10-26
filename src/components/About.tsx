@@ -44,7 +44,10 @@ const About = () => {
       className="cut-viewport overflow-hidden relative"
     >
       <div
-        onClick={next}
+        onClick={() => {
+          next()
+          setPercentage(0)
+        }}
         className="absolute z-[60] top-5 left-1/2 -translate-x-1/2 w-14 cursor-pointer flex flex-col justify-center items-center gap-1 rotate-180"
       >
         <svg
@@ -92,6 +95,7 @@ const About = () => {
         ))}
       <div className="absolute z-[40] bottom-5 left-1/2 -translate-x-1/2">
         <DotsGroup
+          count={mainServices ? mainServices.count : 3}
           page={page}
           percentage={percentage}
           go={go}
@@ -151,7 +155,7 @@ const Slide = ({
           <span className="font-arabic text-lg text-primary mx-auto w-fit block">
             خدمة
           </span>
-          <h1 className=" font-arabic text-5xl font-bold mx-auto w-fit block my-4 h-[80px]">
+          <h1 className=" font-arabic text-5xl font-bold mx-auto w-fit block sm:my-4 my-5 h-[80px]">
             {title}
           </h1>
 

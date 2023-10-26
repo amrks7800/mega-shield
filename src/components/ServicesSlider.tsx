@@ -165,7 +165,8 @@ const Slide = ({
       className={`transition-all duration-500 rounded-s-lg p-5 flex flex-col items-center justify-center h-full
       grow-0 w-full shrink-0 bg-center bg-no-repeat bg-cover slider-child`}
       style={{
-        background: `url("${service.photo}")`,
+        backgroundImage: `url("${service.photo}")`,
+        backgroundRepeat: "no-repeat",
       }}
       ref={ref}
     >

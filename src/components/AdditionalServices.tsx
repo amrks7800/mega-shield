@@ -9,11 +9,13 @@ type PackagesProps = {
   setPackages: React.Dispatch<
     React.SetStateAction<{ title: string; price: number }[]>
   >
+  carSize: 0 | 1 | 2
 }
 
 const AdditionalServices = ({
   packages,
   setPackages,
+  carSize,
 }: PackagesProps) => {
   const [additionalServices, setAdditionalServices] =
     useState<MainService[]>([])
@@ -41,6 +43,7 @@ const AdditionalServices = ({
         <For each={additionalServices}>
           {(item, i) => (
             <AdditionalServiceCard
+              carSize={carSize}
               packages={packages}
               setPackages={setPackages}
               mainService={item}

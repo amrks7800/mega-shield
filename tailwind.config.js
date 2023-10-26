@@ -59,7 +59,7 @@ module.exports = {
         "primary-gray": "#69696F",
         "light-gray": "#E4E4E7",
         primary: {
-          DEFAULT: "hsl(var(--primary))",
+          DEFAULT: "#E62E2D",
           foreground: "hsl(var(--primary-foreground))",
         },
         secondary: {

@@ -71,9 +71,11 @@ const Services = () => {
       <Packages
         packages={packages}
         setPackages={setPackages}
+        carSize={active}
       />
       {/* <Link to="/dash/services">dash</Link> */}
       <AdditionalServices
+        carSize={active}
         packages={packages}
         setPackages={setPackages}
       />

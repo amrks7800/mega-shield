@@ -79,32 +79,32 @@ const PersonalInfo = ({
           أدخل بياناتك لاكمال الحجز
         </h1>
         <Input
-          className="my-4 font-arabic text-lg text-white"
+          className="my-4 font-arabic text-lg  bg-white/70 placeholder:text-black text-black"
           placeholder="الاسم الاول"
           value={firstName}
           onChange={e => setFirstName(e.target.value)}
         />
         <Input
-          className="my-4 font-arabic text-lg text-white"
+          className="my-4 font-arabic text-lg  bg-white/70 placeholder:text-black text-black"
           placeholder="الاسم الثاني"
           value={lastName}
           onChange={e => setLastName(e.target.value)}
         />
         <Input
-          className="my-4 font-arabic text-lg text-white"
+          className="my-4 font-arabic text-lg  bg-white/70 placeholder:text-black text-black"
           placeholder="المدينة"
           value={city}
           onChange={e => setCity(e.target.value)}
         />
         <Input
           type="tel"
-          className="my-4 font-arabic text-lg text-white ltr text-right"
+          className="my-4 font-arabic text-lg  ltr text-right bg-white/70 placeholder:text-black text-black"
           placeholder="رقم الهاتف"
           value={phone}
           onChange={e => setPhone(e.target.value)}
         />
         <Input
-          className="my-4"
+          className="my-4 bg-white/70 placeholder:text-black text-black"
           type="datetime-local"
           onChange={e =>
             setDate(
@@ -120,7 +120,7 @@ const PersonalInfo = ({
           }
         />
         <Button
-          className="text-lg font-arabic w-full"
+          className="text-lg font-arabic w-full bg-transparent border-2 border-primary"
           onClick={handleAddBooking}
         >
           إكمال الحجز
@@ -157,7 +157,7 @@ const PersonalInfo = ({
           <h1 className="w-fit mx-auto text-xl font-bold text-primary font-arabic">
             السعر الاجمالي
           </h1>
-          <span className="text-primary font-arabic text-2xl my-auto">
+          <span className=" font-arabic text-2xl my-auto">
             {packages.reduce((a, b) => a + +b.price, 0)}$
           </span>
         </div>
@@ -166,8 +166,8 @@ const PersonalInfo = ({
             تاريخ و توقيت الحجز
           </h1>
           <p className="flex items-center justify-center gap-3">
-            <span className="text-primary font-arabic text-2xl my-auto mt-5">
-              {date}
+            <span className="font-arabic text-2xl my-auto mt-8">
+              {date ? date : "اختر تاريخ الحجز"}
             </span>
           </p>
         </div>

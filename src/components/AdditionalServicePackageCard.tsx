@@ -7,20 +7,32 @@ const AdditionalServicePackageCard = ({
   servicePackage,
   packages,
   setPackages,
+  price,
 }: {
   servicePackage: Package
   packages: { title: string; price: number }[]
   setPackages: React.Dispatch<
     React.SetStateAction<{ title: string; price: number }[]>
   >
+  price: number
 }) => {
   return (
-    <div className="w-[300px] h-[250px] bg-slate-950 rounded-md shadow-md relative overflow-hidden">
+    <div
+      style={{
+        backgroundImage: `url(/polishers.jpg)`,
+      }}
+      className="w-[300px] h-[250px] bg-slate-950 rounded-md shadow-md relative overflow-hidden
+      bg-cover bg-center bg-no-repeat"
+    >
       <div className="absolute top-0 h-full w-[70px] z-0 bg-primary/70 left-8 -skew-x-12" />
-      <div className="relative z-10">
+      <div className="absolute z-10 bg-black/50 inset-0 " />
+      <div className="relative z-30">
         <h1 className="font-arabic text-white text-xl my-3">
           {servicePackage.name}
         </h1>
+        <span className="mx-auto text-primary text-xl font-bold relative z-50">
+          {price + " "}ريال
+        </span>
         <ul className="p-5 text-green-600 font-arabic font-bold text-lg">
           <For each={servicePackage.description}>
             {(item, i) => (
@@ -47,7 +59,7 @@ const AdditionalServicePackageCard = ({
                 ...prev,
                 {
                   title: servicePackage.name,
-                  price: +servicePackage.price,
+                  price: +price,
                 },
               ])
             } else {

@@ -8,11 +8,13 @@ type PackagesProps = {
   setPackages: React.Dispatch<
     React.SetStateAction<{ title: string; price: number }[]>
   >
+  carSize: 0 | 1 | 2
 }
 
 const Packages = ({
   setPackages,
   packages,
+  carSize,
 }: PackagesProps) => {
   const [subServiceID, setSubServiceID] = useState("")
 
@@ -38,7 +40,13 @@ const Packages = ({
                 key={i}
                 title={packagely.name}
                 features={packagely.description}
-                price={packagely.price}
+                price={
+                  carSize === 0
+                    ? packagely.smallPrice
+                    : carSize === 1
+                    ? packagely.mediumPrice
+                    : packagely.bigPrice
+                }
               />
             )
           )}

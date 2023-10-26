@@ -31,7 +31,9 @@ const AddPackageModal = ({
     new Array(3).fill("")
   )
   const [name, setName] = useState("")
-  const [price, setPrice] = useState(0)
+  const [smallPrice, setSmallPrice] = useState(0)
+  const [mediumPrice, setMediumPrice] = useState(0)
+  const [bigPrice, setBigPrice] = useState(0)
 
   const isOpen = useAppSelector(IsServiceModalOpenSelector)
   const dispatch = useAppDispatch()
@@ -47,16 +49,20 @@ const AddPackageModal = ({
       props: {
         name,
         description: features,
-        price,
+        smallPrice,
+        bigPrice,
+        mediumPrice,
         belongTo: id,
       },
     })
       .unwrap()
-      .then(data => {
+      .then(() => {
         dispatch(toggleServiceModal(false))
         setFeatures(["", "", ""])
         setName("")
-        setPrice(0)
+        setSmallPrice(0)
+        setMediumPrice(0)
+        setBigPrice(0)
       })
   }
 
@@ -86,15 +92,32 @@ const AddPackageModal = ({
             >
               <Input
                 type="text"
-                placeholder="اسم الخدمة"
+                placeholder="اسم الباقة"
                 value={name}
                 onChange={e => setName(e.target.value)}
               />
+
               <Input
                 type="text"
-                placeholder="السعر"
-                value={price}
-                onChange={e => setPrice(+e.target.value)}
+                placeholder="السعر للسيارات الصغيرة"
+                value={smallPrice}
+                onChange={e =>
+                  setSmallPrice(+e.target.value)
+                }
+              />
+              <Input
+                type="text"
+                placeholder="السعر للسيارات المتوسطة"
+                value={mediumPrice}
+                onChange={e =>
+                  setMediumPrice(+e.target.value)
+                }
+              />
+              <Input
+                type="text"
+                placeholder="السعر للسيارات الكبيرة"
+                value={bigPrice}
+                onChange={e => setBigPrice(+e.target.value)}
               />
 
               <Input
