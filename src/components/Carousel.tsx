@@ -29,9 +29,11 @@ const Carousel = () => {
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3, delay: 0.5 + 0.3 }}
-          className="z-10 text-5xl font-bold text-center mb-2"
+          className="z-10 text-5xl font-bold text-center mb-2 leading-[70px]"
         >
-          محترفي خدمات <br /> السيارات في المملكة
+          محترفي خدمات
+          <br />
+          السيارات في المملكة
         </motion.h1>
         <motion.div
           initial={{ opacity: 0, y: 15 }}

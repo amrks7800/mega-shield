@@ -25,14 +25,14 @@ const AdditionalServiceCard = ({
 
   const { data: servicePackages } =
     useGetSubServicePackagesQuery({
-      id: subservices?.services[0]._id!,
+      id: subservices?.services[0]?._id || "",
     })
 
   return (
     <div
-      className="flex-1 bg-cover bg-center bg-no-repeat p-5 hover:border-primary border border-solid border-transparent"
+      className="flex-1 bg-cover bg-center bg-no-repeat h-[70vh] p-5 hover:border-primary border border-solid border-transparent"
       style={{
-        background: `url("${mainService.photo}")`,
+        backgroundImage: `url("${mainService.photo}")`,
       }}
     >
       <h1 className="mx-auto w-fit text-3xl font-arabic text-primary">
