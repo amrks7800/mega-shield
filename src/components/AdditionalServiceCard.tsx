@@ -30,7 +30,7 @@ const AdditionalServiceCard = ({
 
   return (
     <div
-      className="flex-1 bg-cover bg-center bg-no-repeat h-[70vh] p-5 hover:border-primary border border-solid border-transparent"
+      className="flex-1 bg-cover bg-center bg-no-repeat min-h-[70vh] p-5 hover:border-primary border border-solid border-transparent"
       style={{
         backgroundImage: `url("${mainService.photo}")`,
       }}
