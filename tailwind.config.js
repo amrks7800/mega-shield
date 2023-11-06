@@ -27,7 +27,8 @@ module.exports = {
       shopping: "url('/shopping.png')",
       welcome: "url('/welcome.jpg')",
       carbon: "url('/carpon.webp')",
-      astro: "url('/astro.jpg')",
+      who: "url('/whoAreUs.jpg')",
+      map: "url('/map.jpg')",
       "opaque-gradient":
         "linear-gradient(to left, rgba(0,67,116,0.6) -26.48%, rgba(0,51,102,0.6) 73.52%)",
       room: "url('/3882.jpg')",

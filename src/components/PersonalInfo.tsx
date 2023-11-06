@@ -79,32 +79,32 @@ const PersonalInfo = ({
           أدخل بياناتك لاكمال الحجز
         </h1>
         <Input
-          className="my-4 font-arabic text-lg  bg-white/70 placeholder:text-black text-black"
+          className="my-4 font-arabic text-lg placeholder:text-white text-white"
           placeholder="الاسم الاول"
           value={firstName}
           onChange={e => setFirstName(e.target.value)}
         />
         <Input
-          className="my-4 font-arabic text-lg  bg-white/70 placeholder:text-black text-black"
+          className="my-4 font-arabic text-lg placeholder:text-white text-white"
           placeholder="الاسم الثاني"
           value={lastName}
           onChange={e => setLastName(e.target.value)}
         />
         <Input
-          className="my-4 font-arabic text-lg  bg-white/70 placeholder:text-black text-black"
+          className="my-4 font-arabic text-lg placeholder:text-white text-white"
           placeholder="المدينة"
           value={city}
           onChange={e => setCity(e.target.value)}
         />
         <Input
           type="tel"
-          className="my-4 font-arabic text-lg  ltr text-right bg-white/70 placeholder:text-black text-black"
+          className="my-4 font-arabic text-lg  ltr text- placeholder:text-white placeholder:text-right text-white"
           placeholder="رقم الهاتف"
           value={phone}
           onChange={e => setPhone(e.target.value)}
         />
         <Input
-          className="my-4 bg-white/70 placeholder:text-black text-black"
+          className="my- placeholder:text-white text-white mb-4"
           type="datetime-local"
           onChange={e =>
             setDate(
@@ -132,7 +132,11 @@ const PersonalInfo = ({
             حجم السيارة
           </h1>
           <div className="my-5">
-            <CarFront className="text-primary" size={50} />
+            <CarFront
+              className="text-primary"
+              color="#d80032"
+              size={50}
+            />
           </div>
           <span className="font-arabic text-xl font-bold">
             {carSize === 0

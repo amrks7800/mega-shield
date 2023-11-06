@@ -64,7 +64,7 @@ const ServicePackageCard = ({
               >
                 <Check
                   size={25}
-                  color="#75c56e"
+                  color="#d80032"
                   className="font-bold"
                 />
                 <span className="text-white font-arabic text-base">
@@ -100,7 +100,10 @@ const ServicePackageCard = ({
         >
           {packages.filter(p => p.title === title).length >
           0 ? (
-            <ClipboardCheck className="text-primary" />
+            <ClipboardCheck
+              className="text-primary"
+              color="#d80032"
+            />
           ) : (
             "أحجز الأن"
           )}

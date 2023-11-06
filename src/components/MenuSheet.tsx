@@ -23,7 +23,7 @@ const MenuSheet = () => {
   return (
     <Sheet>
       <SheetTrigger className="sm:hidden block" ref={ref}>
-        <Menu size={25} fill="#E34569" />
+        <Menu size={25} color="#d80032" />
       </SheetTrigger>
       <SheetContent className="bg-[#333] text-slate-200 z-[5000000000000000]">
         <SheetHeader>

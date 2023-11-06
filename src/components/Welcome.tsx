@@ -13,7 +13,6 @@ const Welcome = () => {
 
   useEffect(() => {
     if (isInView) controls.start("visible")
-    if (!isInView) controls.start("hidden")
   }, [isInView])
   return (
     <section
@@ -52,7 +51,7 @@ const Welcome = () => {
             opacity: 1,
             transition: { duration: 0.3, delay: 0.9 },
           }}
-          viewport={{ amount: 0.25 }}
+          viewport={{ amount: 0.25, once: true }}
           className="font-arabic font-semibold text-md text-slate-300 max-w-[600px]
            text-center sm:px-0 px-3 mx-auto my-5 z-40"
         >
@@ -68,7 +67,7 @@ const Welcome = () => {
             opacity: 1,
             transition: { duration: 0.3, delay: 1.5 },
           }}
-          viewport={{ amount: 0.25 }}
+          viewport={{ amount: 0.25, once: true }}
           className="font-arabic font-semibold text-md text-slate-300 max-w-[600px]
           text-center sm:px-0 px-3 mx-auto my-5 z-40"
         >
@@ -85,7 +84,7 @@ const Welcome = () => {
             opacity: 1,
             transition: { duration: 0.3, delay: 1.8 },
           }}
-          viewport={{ amount: 0.25 }}
+          viewport={{ amount: 0.25, once: true }}
           className="font-arabic font-semibold text-md text-slate-300 max-w-[600px]
           text-center sm:px-0 px-3 mx-auto my-5 z-40"
         >

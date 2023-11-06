@@ -1,6 +1,6 @@
 import useCarousel from "@/hooks/useCarousel"
 import DotsGroup from "./DotsGroup"
-import { useEffect, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 import { Button } from "./ui/button"
 import { MoreDialog } from "."
 import { Link } from "react-router-dom"
@@ -37,6 +37,11 @@ const About = () => {
   useEffect(() => {
     setPercentage(0)
   }, [page])
+
+  const count = useMemo(
+    () => (mainServices ? mainServices.count : 3),
+    [mainServices]
+  )
 
   return (
     <section
@@ -95,7 +100,7 @@ const About = () => {
         ))}
       <div className="absolute z-[40] bottom-5 left-1/2 -translate-x-1/2">
         <DotsGroup
-          count={mainServices ? mainServices.count : 3}
+          count={count}
           page={page}
           percentage={percentage}
           go={go}
@@ -162,7 +167,7 @@ const Slide = ({
           <div className="flex items-center gap-7 justify-center">
             <Link to={"/service"}>
               <Button
-                className={`font-arabic text-lg transition-all hover:text-primary hover:bg-carCabin hover:bg-cover hover:bg-center hover:bg-no-repeat hover:scale-125 relative group flex h-[65px] w-[150px]`}
+                className={`font-arabic text-lg transition-all hover:text-primary hover:scale-125 relative group flex h-[65px] w-[150px]`}
               >
                 <div className="inset-0 absolute bg-black/40 hidden group-hover:block" />
                 <span className="z-50 text-2xl font-arabic">
@@ -171,7 +176,7 @@ const Slide = ({
               </Button>
             </Link>
             <Button
-              className="px-5 py-[7px] rounded-lg bg-orange-400 transition-all hover:text-primary hover:bg-carCabin hover:bg-cover hover:bg-center hover:bg-no-repeat hover:scale-125 relative group flex text-2xl font-arabic h-[65px] w-[150px]"
+              className="px-5 py-[7px] rounded-lg bg-orange-400 transition-all hover:text-primary hover:scale-125 relative group flex text-2xl font-arabic h-[65px] w-[150px]"
               onClick={() => setIsOpen(prev => !prev)}
             >
               المزيد

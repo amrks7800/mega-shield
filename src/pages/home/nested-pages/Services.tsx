@@ -1,7 +1,7 @@
 import { ReactNode, useState } from "react"
-import bigCar from "/big.webp"
-import mediumCar from "/medium.webp"
-import smallCar from "/small.webp"
+import bigCar from "/big.png"
+import mediumCar from "/medium.png"
+import smallCar from "/small.png"
 import {
   AdditionalServices,
   Packages,
@@ -73,7 +73,6 @@ const Services = () => {
         setPackages={setPackages}
         carSize={active}
       />
-      {/* <Link to="/dash/services">dash</Link> */}
       <AdditionalServices
         carSize={active}
         packages={packages}

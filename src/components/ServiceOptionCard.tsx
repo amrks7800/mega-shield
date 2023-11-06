@@ -42,7 +42,7 @@ const ServiceOptionCard = ({
             <span>المزيد</span>
             <ArrowLeftCircle
               size={30}
-              color="#E22D48"
+              color="#d80032"
               className="transition-transform duration-150 group-hover:-translate-x-[5px]"
             />
           </button>

@@ -15,14 +15,14 @@ const CarSizeSlider = () => {
         onClick={next}
         type="button"
       >
-        <ChevronRight size={40} color="#e34569" />
+        <ChevronRight size={40} color="#d80032" />
       </button>
       <button
         onClick={prev}
         type="button"
         className="absolute top-1/2 -translate-y-1/2 left-8 z-50"
       >
-        <ChevronLeft size={40} color="#e34569" />
+        <ChevronLeft size={40} color="#d80032" />
       </button>
       <h1 className="w-fit mx-auto text-xl text-primary mb-4 font-arabic">
         اختر حجم السيارة

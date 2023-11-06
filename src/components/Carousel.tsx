@@ -14,7 +14,7 @@ const Carousel = () => {
         <div className="absolute inset-0 bg-black/20 backdrop-blur-sm" />
         <CarIcon
           size={55}
-          color="#E22D48"
+          color="#d80032"
           className="z-10"
         />
         <motion.span

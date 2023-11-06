@@ -8,6 +8,7 @@
 
 html {
   scroll-behavior: smooth;
+  @apply bg-[#090200];
 }
 
 body {

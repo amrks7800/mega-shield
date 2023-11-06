@@ -31,19 +31,19 @@ const Adds = () => {
           mb-6"
           >
             <li className="flex items-center gap-2">
-              <SearchCheck color="red" />
+              <SearchCheck color="#d80032" />
               <span className="text-xl font-bold font-arabic">
                 افضل العروض
               </span>
             </li>
             <li className="flex items-center gap-2">
-              <SearchCheck color="red" />
+              <SearchCheck color="#d80032" />
               <span className="text-xl font-bold font-arabic">
                 جودة عالية
               </span>
             </li>
             <li className="flex items-center gap-2">
-              <SearchCheck color="red" />
+              <SearchCheck color="#d80032" />
               <span className="text-xl font-bold font-arabic">
                 اسعار تنافسية
               </span>

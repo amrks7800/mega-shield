@@ -1,5 +1,9 @@
 import { AuthSheet, Footer, Header } from "@/components"
-import { Outlet, useLocation } from "react-router-dom"
+import {
+  Outlet,
+  ScrollRestoration,
+  useLocation,
+} from "react-router-dom"
 import whatsapp from "/whatsapp.png"
 import {
   HoverCard,
@@ -14,6 +18,7 @@ const RootLayout = () => {
   const footer = !pathname.includes("dash") && <Footer />
   return (
     <>
+      <ScrollRestoration />
       <AuthSheet />
       {header}
       <Outlet />

@@ -14,7 +14,7 @@ const Cart = () => {
         className="w-12 h-12 aspect-square rounded-full border border-solid border-slate-200
         flex justify-center items-center"
       >
-        <ShoppingCart size={30} color="#E22D48" />
+        <ShoppingCart size={30} color="#d80032" />
       </SheetTrigger>
       <SheetContent className="bg-[#333] z-[5000000000000000]">
         <SheetHeader>
